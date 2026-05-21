@@ -1,0 +1,68 @@
+.card1
+{
+    width:100%;
+    height:150px;
+    border: 1px solid rgb(18, 18, 228);
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 5px;
+    
+    
+
+}
+
+.card1 .img1
+{
+    width:20%;
+    height: 90%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.img1 img{
+    width:80%;
+    height: 100%;
+}
+
+.card1 .details1
+{
+    width:70%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start ;
+}
+
+.title3
+{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.discription3
+{
+    text-align: center;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.details2
+{
+    width:100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+    padding: 10px;
+}
+
+.quantity1 button
+{
+    width:30px;
+    height: 30px;
+}

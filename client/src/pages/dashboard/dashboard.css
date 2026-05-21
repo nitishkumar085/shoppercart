@@ -1,0 +1,282 @@
+.mainConatiner
+{     
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        background-color: rgb(185, 183, 187);
+        align-items: center;        
+}
+
+.category_section
+{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px
+}
+
+.category_section h2
+{
+    font-size: 30px;
+}
+
+.category_list
+{
+
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.category_card
+{
+    width:400px;
+    height: 350px;
+    /* border: 1px solid green; */
+}
+
+#mens_clothing
+{
+    background: url(https://prod-brandsgateway-images.s3.fr-par.scw.cloud/2019/04/mens-clothing-accessories-98c6b065-a1a.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    
+    
+}
+
+#women_clothing
+{
+    background: url(https://www.thecreativecurator.com/wp-content/uploads/2021/07/playsuit-clothing-type-1024x576.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+#electonics
+{
+    background: url(https://img.freepik.com/free-photo/modern-stationary-collection-arrangement_23-2149309643.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1728345600&semt=ais_hybrid);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.inner_category
+{
+    width:150px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+    padding-top: 12px;
+    font-size: 20px;
+    font-weight: 800;
+
+}
+
+.products
+{
+    width:90%;
+    height: 100%;
+    padding: 30px;
+   
+
+
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: rgba(233, 238, 238, 0.753);
+    border-radius: 5px;
+    box-shadow: 0px 10px 5px 5px rgb(71, 4, 102);
+    
+
+}
+.products h3{
+    font-size: 30px;
+    padding-left:10px ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 5px;
+}
+
+.trendingpProducts
+{
+    width:100%;
+    height: 100%;
+    padding: 50px;
+   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+   font-size: 30px;
+   text-align: center;
+    background-color: rgba(233, 238, 238, 0.753);
+    border-radius: 5px;
+}
+
+.trendingpProducts .trendingpProductsContainer
+{
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap:50px;
+    justify-content: center;
+}
+.list
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:20px;
+    
+}
+
+.adsection
+{
+    width:100%;
+    height: 100vh;
+    /* border: 1px solid brown; */
+}
+
+.adsection_container
+{
+    /* border:1px solid green; */
+    width:100%;
+    height: 100%;
+    display: flex;
+    gap:20px;
+}
+
+.adsection_leftsection
+{
+    width:60%;
+    height: 100%;
+    /* border: 1px solid brown; */
+}
+
+.adsection_leftsection_ad1
+{
+    width: 100%;
+    height: 60%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.adsection_leftsection_ad1 h4  , .adsection_leftsection_ad2 h4  , .adsection_rightsection h4
+{
+    font-size: 45px;
+    width: 600px;
+    position: relative;
+    /* border: 1px solid red; */
+    z-index: 1;
+    padding-left: 10px;
+}
+
+.adsection_leftsection_ad1 h3 , .adsection_leftsection_ad2 h3 ,.adsection_rightsection h3
+{
+    font-size: 18px;
+    margin-top: 50px;
+    position: relative;
+    /* border: 1px solid red; */
+    padding-left: 10px;
+
+}
+
+.adsection_leftsection_ad1 h3::before , .adsection_leftsection_ad2 h3::before ,.adsection_rightsection h3::before
+{
+    content: "";
+    height: 100%;
+    display: hidden;
+    width:0%;
+    border-bottom: 2px solid red;
+    position: absolute;
+    transition: width 1s;
+  
+
+}
+
+.adsection_leftsection_ad1 h3:hover::before , .adsection_leftsection_ad2 h3:hover::before ,.adsection_rightsection h3:hover::before
+{
+    display: visible;
+    width:20%;
+
+}
+
+.jeans
+{
+    width:60%;
+    height: 500px;
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    /* border: 1px solid red; */
+    /* transition: ; */
+}
+
+/* .jeans:hover{
+
+} */
+
+.adsection_leftsection_ad2
+{
+    width: 100%;
+    height: 40%;
+    /* border: 1px solid rgb(219, 13, 99); */
+    display:flex;
+    padding: 10px 10px 0 0;
+    background:linear-gradient(white 40%,rgb(43, 42, 42) 60%);
+}
+
+.tshirtad
+{
+    width:500px;
+    height: 280px;
+    /* border: 1px solid green; */
+}
+
+.adsection_rightsection
+{
+    width:40%;
+    height: 100%;
+    /* border: 1px solid rgb(28, 31, 216); */
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:30px;
+    padding-top: 20px ;
+    background: linear-gradient(to right ,rgb(103, 103, 211) 60%,rgb(59, 59, 59) 60%);
+}
+
+.adsection_rightsection h4
+{
+    width: 100%;
+        text-align: center;
+        margin-top: 20px;
+}
+
+.electronics
+{
+    width:100%;
+    height: 60%;
+}

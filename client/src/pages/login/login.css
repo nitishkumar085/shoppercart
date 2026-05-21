@@ -1,0 +1,67 @@
+
+#formConatiner
+{
+    width:100%;
+    height:91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(blueviolet 60%,#9e60d7)
+
+}
+
+#formConatiner #main
+{
+    width:40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  justify-content:center;
+  align-items:center;
+    
+    padding: 10px;
+    row-gap: 5px;
+      /* background-color:lightblue; */
+}
+
+
+/* heading style starts*/
+#heading{
+    text-align: center;
+    
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+#heading h3{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+/* heading style ends*/
+
+/* form style starts*/
+form
+{
+    height: 200px;
+    
+}
+
+form label
+{
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form div
+{
+    margin-top: 10px;
+}
+form .field{
+    width: 100%;
+}
+/* form style ends*/
+

@@ -1,0 +1,120 @@
+.category_page_section
+{
+    width:100%;
+    /* border: 1px solid red; */
+    height:100%;
+    display:flex;
+    margin-top: 50px;
+    padding: 0px 30px;
+}
+
+.category_list1
+{
+    width:20%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: inline-block;
+}
+
+.product_list1
+{
+    width:80%;
+    height: 100%;
+    /* border: 1px solid rgb(76, 21, 226); */
+    display: inline-block;
+}
+
+.category_list_title
+{
+    width:100%;
+    height: 50px;
+    background-color: rgb(235, 230, 230);
+    padding-top:12px;
+    padding-left: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.details_checkbox
+{
+    transform: scale(1.5)
+    /* 
+  -webkit-appearance: none;
+  -moz-appearance: none; */
+  /* border: 1px solid rgb(151, 147, 147); */
+  /* transform: scale(1.5); */
+  /* appearance: none; 
+  border: 1px solid black; */
+
+  
+}
+
+/* .details_checkbox:checked
+{
+    
+    background-color: black;
+   border: 5px solid rgb(31, 167, 4);
+} */
+
+.category_list2
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-weight: bold;
+    color: rgb(112, 112, 112);
+    padding: 10px 25px;
+    height: 250px;
+    text-align: left;
+}
+
+.sortItems
+{
+    /* appearance: none; */
+    color: black;
+    width: 220px;
+    height: 40px;
+    border-style: none;
+    background-color: rgb(235, 230, 230);
+    padding:0px 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.salesorting
+{
+    width: 300px;
+    height: 40px;
+    background-color: rgb(235, 230, 230);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.sortingOptions
+{
+    display: flex;
+    gap:25px;
+    justify-content: flex-end;
+}
+
+
+.productListSection
+{
+    width: 100%;
+    /* border: 1px solid red; */
+    height: 150vh;
+    padding:20px 20px 20px 50px;
+}
+
+.product
+{
+    width:250px;
+    height: 400px;
+    border:1px solid red;
+}
+
+.productCardImage
+{
+    width:100%;
+    height: 300px;
+}

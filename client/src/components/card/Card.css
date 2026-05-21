@@ -1,0 +1,77 @@
+.cardConatiner
+{
+    width: 18rem;
+    height: 450px;
+    
+    background-color: rgba(252, 252, 255, 1);
+    box-shadow: 2px 5px 5px  rgb(86, 86, 87);
+    border-radius: 5px;
+}
+
+/*image styles*/
+
+.productImage
+{
+    width:100%;
+    height: 300px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.productImage img{
+    height:100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px  rgb(174, 174, 175);
+}
+
+/*details style*/
+
+.productInfo
+{
+    width:100%;
+    height: 80px;
+    
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    padding: 5px;
+    margin-top: 5px;
+    
+}
+/* p:first-child{
+    text-align: center;
+} */
+
+.productInfo .text
+{
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+
+}
+.text span
+{
+    color: rgb(7, 7, 7);
+}
+
+.addOptions
+{
+    width:100%;
+    padding: 5px;
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-around;
+    
+}
+
+.addOptions button
+{
+    height: 40px;
+    width:40%;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px  rgb(169, 169, 170);
+    border: none;
+    font-size: 12px;
+}
