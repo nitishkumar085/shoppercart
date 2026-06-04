@@ -33,12 +33,12 @@ function CartCard({val}) {
         <div className='title3'>{val[1].title}</div>
         <div className='discription3'>{val[1].description}</div>
         <div className='details2'>
-        <div className='price3'>Price:{val[1].price}$</div>
-        <div className='rating1'>Rating:{val[1].rating}</div>
-        <div className='quantity1'>quantity:<button onClick={addQuantity}>+</button>&nbsp;&nbsp;<span style={{fontSize:"10px",}}>{val[1].quantity}</span>&nbsp;&nbsp;<button onClick={reduceQuantity}>-</button></div>
+        <div className='price3'>Price:&nbsp;&nbsp;&nbsp;{val[1].price}$</div>
+        <div className='rating1'>Rating:&nbsp;&nbsp;&nbsp;{val[1].rating}</div>
+        <div className='quantity1'>Quantity:&nbsp;&nbsp;&nbsp;<button onClick={addQuantity}>+</button>&nbsp;&nbsp;<span style={{fontSize:"10px",}}>{val[1].quantity}</span>&nbsp;&nbsp;<button onClick={reduceQuantity}>-</button></div>
         </div>
         </div>
-        <div onClick={deleteItem1}>X</div>
+        <button className='deleteItemFromcart' onClick={deleteItem1}>x&nbsp;&nbsp;Remove</button>
     </div>
   )
 }

@@ -35,14 +35,15 @@ function CheckOut() {
         <div className='checkcontainer'>
             <div className='title1'>
             <h3>MY CART</h3>
+            <h5>Your Items</h5>
             </div>
            
             <div className='block'>
                 <div className='leftside'>
-                {cartList.length===0? "Add Items to the Cart":cartList}
+                {cartList.length===0? <div style={{height:"100%",display:"grid",placeItems:"center"}}><p style={{fontSize:"40px"}}>Add Items to the Cart</p></div>:cartList}
                 </div>
                 <div className='rightside'>
-                    <div><h3>TOTAL</h3></div>
+                    <div><h3 className='textTotal'>Order Summary</h3></div>
                     <div className='cartCalculation'>
                         <div style={{display:'flex',justifyContent:"space-between"}}><span>Sub-total </span>    <span>{Math.ceil(amount)}$</span>  </div>
                         <h3>discount          </h3>
@@ -52,7 +53,7 @@ function CheckOut() {
                         <div style={{display:'flex',justifyContent:"space-between"}}><span>Total </span>    <span>{Math.ceil(amount)}$</span>  </div>
                     </div>
                     <div>
-                        <button type='button' onClick={checkOutHandler}>checkout</button>
+                        <button className='gotoPaymentPage' type='button' onClick={checkOutHandler}>CHECKOUT</button>
                     </div>
                 </div>
             </div>
