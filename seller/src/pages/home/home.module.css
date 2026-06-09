@@ -438,7 +438,7 @@
 
 /* Mobile Screen Sizes (Under 600px) */
 @media (max-width: 600px) {
-  .heroSection { padding: 40px 20px; }
+  .heroSection { padding: 80px 20px 40px 20px }
   .featuresSection, .testimonialsSection { padding: 60px 20px; }
   
   .heroTitle { font-size: 2.2rem; }
