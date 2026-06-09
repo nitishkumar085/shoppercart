@@ -31,7 +31,7 @@ const newProduct = new mongoose.Schema({
         required:[true,"enter thumbnail"]
     },
     stock:{
-        type:String,
+        type:Number,
         required:[true,"enter thumbnail"]
     },
     
@@ -80,7 +80,7 @@ const newProduct = new mongoose.Schema({
         required:[true,"enter thumbnail"]
     },
     category:{
-        type:String,
+        type:Array,
         required:[true,"enter thumbnail"]
     },
 

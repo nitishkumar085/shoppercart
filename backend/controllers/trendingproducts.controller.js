@@ -1,4 +1,4 @@
-const product = require("../models/products")
+const product = require("../models/product")
 
 const womensTrendingProducts = async (req,res)=>{
         const newProducts = await product.aggregate([

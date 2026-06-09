@@ -1,0 +1,260 @@
+/* Color Palette Variables */
+:root {
+  --bg-color: #111827;       /* Dark premium background */
+  --text-main: #9ca3af;     /* Muted grey for main copy */
+  --text-light: #ffffff;    /* White headings */
+  --brand-green: #10b981;   /* Vibrant green accent color */
+  --border-color: #1f2937;  /* Soft divider line colors */
+}
+
+.footerContainer {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', 'Roboto', sans-serif;
+  padding: 60px 40px 30px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1.2fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Brand Section Styling */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.brandName {
+  color: var(--text-light);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.brandSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.brandDescription {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.socialIcons a {
+  color: var(--text-main);
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  color: var(--text-light);
+}
+
+/* Links Columns Handling */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.linkColumn h3,
+.newsletterColumn h3 {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.linkColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkColumn a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.linkColumn a:hover {
+  color: var(--text-light);
+}
+
+/* Newsletter Column Styling */
+.newsletterColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletterColumn p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.emailInput {
+  flex-grow: 1;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.emailInput:focus {
+  border-color: var(--brand-green);
+}
+
+.subscribeBtn {
+  background-color: var(--brand-green);
+  color: var(--text-light);
+  border: none;
+  border-radius: 6px;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.subscribeBtn:hover {
+  background-color: #059669;
+}
+
+/* Bottom Row Section */
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 50px 0 25px 0;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+}
+
+.languageSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.languageSelector:hover {
+  color: var(--text-light);
+}
+
+.globeIcon {
+  font-size: 1rem;
+}
+
+.arrow {
+  font-size: 0.6rem;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE ADAPTATIONS)
+   ========================================================================== */
+
+/* 1. Desktop & Small Laptops View adjustment */
+@media (max-width: 1100px) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr; /* Switch to 2 blocks, bump newsletter below */
+  }
+  .newsletterColumn {
+    grid-column: span 2;
+    max-width: 500px;
+  }
+}
+
+/* 2. Tablet Screen Sizes */
+@media (max-width: 768px) {
+  .footerContainer {
+    padding: 40px 24px 20px 24px;
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr; /* Stack into a single linear block stream */
+    gap: 35px;
+  }
+
+  .newsletterColumn {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns across for items list */
+    gap: 30px;
+  }
+}
+
+/* 3. Small Mobile Devices */
+@media (max-width: 480px) {
+  .linksGrid {
+    grid-template-columns: 1fr; /* Total stacked list elements */
+    gap: 25px;
+  }
+  
+  .inputGroup {
+    flex-direction: column; /* Inputs break vertically on miniature windows */
+  }
+  
+  .subscribeBtn {
+    height: 44px; /* Slightly taller finger tap area */
+  }
+
+  .bottomBar {
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}

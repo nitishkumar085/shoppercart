@@ -1,4 +1,4 @@
- const product = require("../models/products")
+ const product = require("../models/product")
  
  const productData = async (req,res)=>{
     try{
@@ -19,9 +19,9 @@
  const addProduct = async(req,res)=>{
     try{
        
-        
+        // console.log(req.body)
         const data = await product.create(req.body)
-        res.status(201).json({message:"product added"})
+        res.status(201).json({message:"product added",data:data})
         
     }
     catch(err)
