@@ -4,6 +4,9 @@ import './App.css'
 import Footer from "./components/footer/Footer"
 import Home from "./pages/home/Home"
 import ProductForm from "./components/productForm/ProductForm"
+import Dashboard from "./pages/dashboard/Dashboard"
+
+import {Outlet} from 'react-router-dom'
 
 
 function App() {
@@ -12,9 +15,12 @@ function App() {
   return (
     <>
       <Navbar/>
+      <Outlet/>
       {/* <Home/> */}
-      <ProductForm/>
+      {/* <ProductForm/> */}
+      {/* <Dashboard/> */}
       <Footer/>
+      {/* hello */}
     </>
   )
 }

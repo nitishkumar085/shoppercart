@@ -1,0 +1,343 @@
+:root {
+  --bg-main: #f4f6f8;
+  --bg-sidebar: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-muted: #666666;
+  --brand-color: #2563eb;
+  --brand-light: #eff6ff;
+  --border-color: #e5e7eb;
+  --badge-red: #ef4444;
+  --badge-orange: #f97316;
+}
+
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1rem;
+  position: fixed;
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.logoIcon {
+  background-color: #e2f5ec;
+  color: #10b981;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brandSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-grow: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.navItem:hover {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.activeNav {
+  background-color: #e2f5ec !important; /* Light green highlight from mockup */
+  color: #10b981 !important;
+  font-weight: 600;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: background 0.2s;
+}
+
+.logoutBtn:hover {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+/* --- MAIN WRAPPER --- */
+.mainWrapper {
+  margin-left: 240px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* --- HEADER --- */
+.header {
+  background-color: var(--bg-sidebar);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 70px;
+  /* position: sticky; */
+  width: 100%;
+}
+
+.welcomeText h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.welcomeText p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+ 
+}
+
+.actionIconBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  position: relative;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  /* transition: background 0.2s; */
+}
+
+.actionIconBtn:hover {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.65rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 1px 5px;
+  min-width: 10px;
+  text-align: center;
+}
+
+.badgeBell { background-color: var(--badge-red); }
+.badgeMail { background-color: var(--badge-orange); }
+
+/* --- PROFILE DROPDOWN --- */
+.profileContainer {
+  position: relative;
+}
+
+.profileDropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 4px 10px 4px 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profileDropdownTrigger:hover {
+  background-color: var(--bg-main);
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.arrow {
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.arrowRotate {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 150px;
+  padding: 0.5rem 0;
+  z-index: 20;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+}
+
+.dropdownItem:hover {
+  background-color: var(--bg-main);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 0.25rem 0;
+}
+
+/* --- BODY & CONTENT --- */
+.contentBody {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.cardPlaceholder {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-muted);
+  min-height: 400px;
+}
+
+.footerBranding {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background-color: var(--bg-sidebar);
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- RESPONSIVE DESIGN (All Screens) --- */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding: 1.5rem 0.5rem;
+    align-items: center;
+  }
+  .brandName, .brandSub, .navText {
+    display: none; /* Hide text on tablets/mobile to stack items nicely */
+  }
+  .logoSection {
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .navItem {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+  .mainWrapper {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .headerActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .contentBody {
+    padding: 1rem;
+  }
+}
