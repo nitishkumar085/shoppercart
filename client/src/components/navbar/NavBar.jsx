@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './navBar.css'
 import { useSelector } from 'react-redux';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function NavBar() {
   const [isLogin,setIslogin] = useState(false)
@@ -57,7 +57,7 @@ const goToHome=()=>{
             
             {isLogin && isLogin? <button onClick={loginAccout}>Login</button>:<div style={{display:"flex"}}><p>{userName}</p><button onClick={logoutAccout}>Logout</button></div>}
           </div>
-          <h3><span style={{color:"red"}}>&#x2606;</span> Become a Seller</h3>
+          <h3 ><span style={{color:"red"}}>&#x2606;</span> <Link to='https://shoppercart-u4od.vercel.app'style={{textDecoration:"none",color:'black'}}>Become a Seller</Link></h3>
 
           <div id="cartIcon" onClick={goToCart}>
           <i className="fa fa-shopping-cart"></i>
