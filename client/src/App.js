@@ -12,6 +12,7 @@ import './shop.css';
 import Category from './pages/category/Category';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './utils/ScrollTop';
+import NotFound from './utils/NotFound';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
          <Route path='/category' element={<Category/>}/>
          <Route path='/productDetails/:category/:id/:title' element={<ItemDetails />} />
         <Route path='/checkout' element={<CheckOut />} />
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer/>  
     </div>
