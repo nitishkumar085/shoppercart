@@ -29,7 +29,7 @@ function Dashboard() {
         const [mensTrending,setMensTrendindg]  = useState([])
   
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/v1/products/getProduct")
+        axios.get("https://shoppercartapi.onrender.com/api/v1/products/getProduct")
         .then((res)=>{ dispatch(addPoductData(res.data.products))
                       let category=[]
                       for(let val of res.data.products)
@@ -49,12 +49,12 @@ function Dashboard() {
 
 
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/v1/products/tendingProducts/women")
+        axios.get("https://shoppercartapi.onrender.com/api/v1/products/tendingProducts/women")
         .then((res)=>{setWomensTrendindg(res.data.data)})
         .catch((err)=>console.error(err))
     },[]) 
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/v1/products/tendingProducts/mens")
+        axios.get("https://shoppercartapi.onrender.com/api/v1/products/tendingProducts/mens")
         .then((res)=>{setMensTrendindg(res.data.data)})
         .catch((err)=>console.error(err))
     },[]) 
