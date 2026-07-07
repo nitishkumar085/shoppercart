@@ -65,6 +65,6 @@ try {
 
 }
 
-module.exports = {signup}
+module.exports = {signup,login}
 
 
