@@ -40,12 +40,12 @@ try {
 
         if ( !email || !password) {
 
-            return res.status(400).json({ message: "entert detials" });
+            return res.status(400).json({ message: "enter details" });
         } 
         
         
             // we await here beacuse its takes time to find user in database
-            if(!await users.findOne({email}))
+            if(await users.findOne({email}))
             {
                 const userdata = await users.create(req.body)
                 const token = await jwt
