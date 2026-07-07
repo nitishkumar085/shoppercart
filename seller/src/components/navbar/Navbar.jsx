@@ -42,8 +42,8 @@ export default function Navbar() {
                 </div>
                 
                 <div className={style.registerOption}>
-                   <Link to="/login"> <button>Log in</button></Link>
-                    <button>Sign up</button>
+                   {/* <Link to="/login"> <button>Log in</button></Link> */}
+                     <Link to="/login"><button style={{background:"green",color:"white"}}> Login</button></Link>
                 </div>
             </div>
         </nav>
