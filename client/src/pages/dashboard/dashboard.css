@@ -116,6 +116,7 @@
     letter-spacing: 5px;
 }
 
+/***************trending product section*********************************/
 .trendingpProducts
 {
     width:100%;
@@ -305,6 +306,40 @@
         height: 20vh;
         /* border: 1px solid green; */
     }
+/***************trending product section*********************************/
+.trendingpProducts
+{
+    width:100%;
+    height: 100%;
+    padding: 20px;
+   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+   font-size: 30px;
+   text-align: center;
+    background-color: rgba(233, 238, 238, 0.753);
+    border-radius: 5px;
+                /* border: 1px solid brown; */
+
+}
+
+.trendingpProducts .trendingpProductsContainer
+{
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: center;
+}
+.list
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:10px;
+    
+}
 
 
     /**************Ad section*********************/

@@ -75,3 +75,42 @@
     border: none;
     font-size: 12px;
 }
+
+
+@media only screen and (max-width:480px){
+   .cardConatiner
+{
+    width: 46%;
+    height: 18rem;
+    
+    background-color: rgba(252, 252, 255, 1);
+    box-shadow: 2px 5px 5px  rgb(86, 86, 87);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+} 
+
+.productImage
+{
+    width:90%;
+    height: 120px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+.addOptions button
+{
+    height: 30px;
+    width:40%;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px  rgb(169, 169, 170);
+    border: none;
+    font-size: 2vw;
+}
+
+
+}
