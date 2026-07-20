@@ -7,6 +7,7 @@
         align-items: center;        
 }
 
+/*********************************category section****************************/
 .category_section
 {
     width: 100%;
@@ -147,6 +148,8 @@
     
 }
 
+/************************* Ad section***********/
+
 .adsection
 {
     width:100%;
@@ -279,4 +282,170 @@
 {
     width:100%;
     height: 60%;
+}
+
+
+@media only screen and (max-width:480px) {
+
+
+    .category_section
+        {
+            width: 100%;
+            height: 30vh;
+            /* border: 1px solid red; */
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            gap:20px
+        }
+    
+        .category_card
+    {
+        width:28vw;
+        height: 20vh;
+        /* border: 1px solid green; */
+    }
+
+
+    /**************Ad section*********************/
+
+    .adsection
+        {
+            width:100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            /* border: 1px solid brown; */
+        }
+
+
+    .adsection_container
+{
+    /* border:1px solid green; */
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:0px;
+}
+
+.adsection_leftsection
+{
+    width:100%;
+    height: 100%;
+    /* border: 1px solid brown; */
+}
+
+.adsection_leftsection_ad1
+{
+    width: 100%;
+    height: 60%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.adsection_leftsection_ad1 h4  , .adsection_leftsection_ad2 h4  , .adsection_rightsection h4
+{
+    font-size: 2rem;
+    width: auto;
+    position: relative;
+    /* border: 1px solid red; */
+    z-index: 1;
+    padding-left: 10px;
+}
+
+.adsection_leftsection_ad1 h3 , .adsection_leftsection_ad2 h3 ,.adsection_rightsection h3
+{
+    font-size: 18px;
+    margin-top: 50px;
+    position: relative;
+    /* border: 1px solid red; */
+    padding-left: 10px;
+    color: white;
+
+}
+
+.adsection_leftsection_ad1 h3::before , .adsection_leftsection_ad2 h3::before ,.adsection_rightsection h3::before
+{
+    content: "";
+    height: 100%;
+    display: hidden;
+    width:0%;
+    /* border-bottom: 2px solid red; */
+    position: absolute;
+    transition: width 1s;
+  
+
+}
+
+.adsection_leftsection_ad1 h3:hover::before , .adsection_leftsection_ad2 h3:hover::before ,.adsection_rightsection h3:hover::before
+{
+    display: visible;
+    width:20%;
+
+}
+
+.jeans
+{
+    width:60%;
+    height: 220px;
+    position: absolute;
+    z-index: 0;
+    right: -50px;
+    /* border: 1px solid red; */
+    /* transition: ; */
+}
+
+/* .jeans:hover{
+
+} */
+
+.adsection_leftsection_ad2
+{
+    width: 100%;
+    height: 40%;
+    /* border: 1px solid rgb(219, 13, 99); */
+    display:flex;
+    padding: 10px 10px 0 0;
+    background:linear-gradient(white 40%,rgb(43, 42, 42) 60%);
+}
+
+.tshirtad
+{
+    width:500px;
+    height: 280px;
+    /* border: 1px solid green; */
+}
+
+.adsection_rightsection
+{
+    width:100%;
+    height: 100%;
+    /* border: 1px solid rgb(28, 31, 216); */
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:30px;
+    padding-top: 20px ;
+    background: linear-gradient(to right ,rgb(103, 103, 211) 60%,rgb(59, 59, 59) 60%);
+}
+
+.adsection_rightsection h4
+{
+    width: 100%;
+        text-align: center;
+        margin-top: 20px;
+}
+
+.electronics
+{
+    width:100%;
+    height: 60%;
+}
+
 }

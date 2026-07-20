@@ -18,7 +18,7 @@ function Login() {
       e.preventDefault()
     if(formData.email && formData.password)
     {
-      const res = await axios.post("https://authuser-8kuo.onrender.com/api/v1/user/signin",formData,{headers:{
+      const res = await axios.post("https://shoppercartapi.onrender.com/api/v1/client/login",formData,{headers:{
          'Content-Type': 'application/json'
       }})
       console.log(res.data)

@@ -42,6 +42,7 @@ const goToHome=()=>{
     localStorage.removeItem("name")
     navigate("/")
   }
+  console.log("navbar")
   return (
     <div id="navContainer">
       { console.log(userName)}
@@ -55,7 +56,7 @@ const goToHome=()=>{
           </div>
           <div id="userDetails">
             
-            {isLogin && isLogin? <button onClick={loginAccout}>Login</button>:<div style={{display:"flex"}}><p>{userName}</p><button onClick={logoutAccout}>Logout</button></div>}
+            {isLogin && isLogin? <div style={{display:"flex"}}><p>{userName}</p><button onClick={logoutAccout}>Logout</button></div>:<button onClick={loginAccout}>Login</button>}
           </div>
           <h3 ><span style={{color:"red"}}>&#x2606;</span> <Link to='https://shoppercart-u4od.vercel.app'style={{textDecoration:"none",color:'black'}}>Become a Seller</Link></h3>
 
