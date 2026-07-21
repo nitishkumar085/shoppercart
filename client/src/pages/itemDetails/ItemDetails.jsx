@@ -64,18 +64,18 @@ return(
 
       </div>
       <div className="productDetailsAndReview">
-          <h4 style={{color:"gray"}}>{productData.brand}</h4>
+          <h4 className="productBrand"style={{color:"gray"}}>{productData.brand}</h4>
         <h1 style={{textAlign:"left",fontSize:"50px"}}>{productData.title}</h1>
         <h4 style={{textAlign:"left",fontSize:"30px"}}>${productData?.discountPercentage? (<span>{Math.round(productData.price-((productData.discountPercentage/100)*productData.price))}&nbsp;&nbsp;&nbsp;<s style={{fontSize:"22px",color:"gray"}}>${productData.price}</s>&nbsp;&nbsp;<span style={{color:"green",fontSize:"22px"}}>{productData.discountPercentage}%  off</span></span>):productData.price}</h4>
         <span>
         <span style={{background:`${productData.rating>4? "green":productData.rating>2? "orange":"red"}`,color:"white",borderRadius:"10px",padding:"5px"}}>{productData.rating}&nbsp;&#9733;</span>
         &nbsp;&nbsp;&nbsp;<span style={{color:"gray",fontWeight:"bold"}}>{0}&nbsp;ratings and {productData?.reviews?.length}&nbsp;reviews</span>
         </span>
-        <span>
-        <button style={{width:'30px',height:"40px",cursor:"pointer",background:"black",color:"white"}} onClick={decreaseQuantity}>-</button>
+        <span className="addQuantityOption">
+        <button className="addQuantityAndToTheCart" onClick={decreaseQuantity}>-</button>
           <input type="text" style={{width:'40px',height:"40px",textAlign:"center",borderStyle:"none",fontFamily:"Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",fontWeight:"bold"}} value={productQuantity===0? "":productQuantity} onChange={getQuantity}></input>
           <button style={{width:'30px',height:"40px",cursor:"pointer",background:"black",color:"white"}} onClick={increaseQuantity}>+</button>
-          <button style={{width:'73%',height:"40px",marginLeft:"30px",cursor:"pointer",fontFamily:"Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",background:"lightblue",borderStyle:"none",fontSize:"15px",fontWeight:"bold"}} onClick={addToCart1}>Add to Cart</button>
+          <button className="addToCartButton"  onClick={addToCart1}>Add to Cart</button>
         </span>
         
         <button style={{width:'100%',height:"50px",marginTop:"20px",cursor:"pointer",fontFamily:"Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",background:"green",borderStyle:"none",fontSize:"15px",fontWeight:"bold",color:"white"}}>Buy now</button>
