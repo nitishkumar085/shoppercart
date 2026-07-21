@@ -43,6 +43,14 @@
     font-weight: 800;
 }
 
+.hamburgerMenu div
+{
+    width:40px;
+    height: 7px;
+    margin-top: 5px;
+    background-color: black;
+    display: none;
+}
 
 #search
 {
@@ -113,4 +121,145 @@
 {
     width:100px;
     height: 30px;
+}
+
+
+@media only screen and (max-width:520px) {
+   #navContainer
+{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(173, 171, 171);
+   box-shadow: 5px 0px 10px rgb(36, 8, 65);
+   position: sticky;
+    top:0px;
+    z-index: 999;
+    padding: 0px 30px ;
+}
+
+#appIcon
+{
+  max-width:100px;
+  min-width:100vw;
+    height: 50px;
+   
+    display: flex;
+   
+    align-items: center;
+    gap:10px;
+    cursor:pointer;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+
+}
+
+#appIcon img{
+    max-width:50px;
+  min-width:45px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+#appIcon h1
+{
+    font-size:4vw;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 5px;
+    color: rgb(15, 2, 131);
+    
+    font-weight: 800;
+}
+.hamburgerMenu div
+{
+    width:40px;
+    height: 7px;
+    margin-top: 5px;
+    background-color: black;
+    display: block;
+}
+
+#search
+{
+    width:400px;
+    height: 40px;
+    display: none;
+    
+}
+
+#search input
+{
+    width:100%;
+    height: 100%;
+    text-align: right;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+#cartIcon
+{
+    width: 3%;
+    height: 40px;
+    
+    position: relative;
+        display: none;
+
+    
+
+
+}
+
+#cartIcon i
+{
+    font-size: 30px;
+    color: antiquewhite;
+}
+
+#cartIcon span{
+    width:20px;
+    height: 20px;
+    border-radius: 50px;
+    position: absolute;
+    background-color: rgb(230, 98, 37);
+    text-align: center;
+    top:0;
+    right: 0;
+
+}
+
+
+#userDetails
+{
+    width:25%;
+    height: 40px;
+    /* display: flex; */
+    
+    justify-content: center;
+    align-items: center;
+        display: none;
+
+
+
+}
+
+#userDetails p{
+    font-size: 150%;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#userDetails button
+{
+    width:100px;
+    height: 30px;
+    border:1px solid red;
+}
+    .linkTosellerWebsite
+    {
+        display: none;
+    }
 }
