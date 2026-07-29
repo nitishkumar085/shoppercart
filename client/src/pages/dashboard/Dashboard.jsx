@@ -81,8 +81,8 @@ function Dashboard() {
 
     console.log(data.category)
     const goToCategory = (e)=>{
-        console.log('category');
-        navigate('/category')
+        console.log(e.target.id);
+        navigate(`/category/${e.target.id}`)
     }
   return (
     <div className='mainConatiner'>

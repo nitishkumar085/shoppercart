@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './category.css'
+import axios from 'axios'
+import {useParams} from "react-router-dom"
 
 function Category()
 {
     const [checkedSelectedCategory,setCheckedselectedCategory] = useState(false)
     const [MarkAllFalse,setMarkAllFalse] = useState(true)
+    const [filterProductListData,setfilterproductListdata] = useState([])
     let mensListItems =['T-sirts','shirt','kurta','jeans','pant','trowser'] 
+
+    const cat =useParams()
+    const {category} = cat
+    console.log(category)
 
     const mensList= mensListItems.map((value,i)=>{
         return(
@@ -13,9 +20,30 @@ function Category()
         )
     })
 
+    useEffect(()=>{
+         axios.get("http://localhost:8000/api/v1/products/filterproduct",{params:{
+            category
+        }}).then((res)=>setfilterproductListdata(res.data.data))
+        .catch((err)=>console.log(err))
+        
+    },[])
     const markcategory=(e)=>{
         setCheckedselectedCategory(true)
     }
+    const generateFilterProductDataList = filterProductListData.map((value,ind)=>{
+            return(
+                    <div className='product' key={ind}>
+                        <img src={value.thumbnail} className='productCardImage'/>
+                        <div>
+                            <h3>{value.title}</h3>
+                            <p>price and discount</p>
+                            <p>rating</p>
+                        </div>
+                    </div>
+            )
+         
+
+    })
     return (
         <div>
             <div>Home/mens</div>
@@ -87,14 +115,7 @@ function Category()
                     </div>
                 </div>
                 <div className='productListSection'>
-                    <div className='product'>
-                        <img src='#' className='productCardImage'/>
-                        <div>
-                            <h3>product name</h3>
-                            <p>price and discount</p>
-                            <p>rating</p>
-                        </div>
-                    </div>
+                    {generateFilterProductDataList}
 
                 </div>
             </div>

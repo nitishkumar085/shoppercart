@@ -5,11 +5,14 @@ import offersBanner2 from '../../assests/Banner/offersBanner2.jpg'
 import offersBanner3 from '../../assests/Banner/offersBanner3.jpg'
 import offersBanner4 from '../../assests/Banner/offersBanner4.jpg'
 import offersBanner5 from '../../assests/Banner/offersBanner5.jpg'
-
+import adBanner1 from '../../assests/Banner/adBanner1.png'
+import adBanner2 from '../../assests/Banner/adBanner2.png'
+import adbanner3 from '../../assests/Banner/adbanner3.png'
+import addBanner4 from '../../assests/Banner/addBanner4.png'
 function Banner() {
 
   const [promoOffer,setPromoOffer] = useState(offersBanner1)
-  const [offerList,setOfferList] = useState([offersBanner2,offersBanner3,offersBanner4,offersBanner5])
+  const [offerList,setOfferList] = useState([offersBanner2,offersBanner3,offersBanner4,offersBanner5,adBanner1,adBanner2,adbanner3,addBanner4])
 
   const [I,setI] =useState(0) // let offerList = useRef()
   // let i = useRef(0)
