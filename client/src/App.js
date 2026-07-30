@@ -15,7 +15,14 @@ import ScrollToTop from './utils/ScrollTop';
 import NotFound from './utils/NotFound';
 import Cart from './pages/cart/Cart';
 
+import Authenticate from './utils/Authenticate';
+import ProtectedRoutes from './utils/ProtectRoutes';
+
+
+
 function App() {
+
+  
 
   return (
     <div>
@@ -28,7 +35,9 @@ function App() {
          <Route path='/category/:category' element={<Category/>}/>
          <Route path='/productDetails/:category/:id/:title' element={<ItemDetails />} />
         <Route path='/checkout' element={<CheckOut />} />
-        <Route path = '/Cart' element={<Cart/>}/>
+        <Route element={<ProtectedRoutes/>}>
+        <Route path = '/cart' element={<Cart/>}/>
+        </Route>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer/>  

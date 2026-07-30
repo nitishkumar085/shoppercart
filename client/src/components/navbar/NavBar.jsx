@@ -1,12 +1,14 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import './navBar.css'
 import { useSelector } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom'
+import { LoginContext } from '../../utils/Authenticate';
 
 function NavBar() {
-  const [isLogin,setIslogin] = useState(false)
+  // const [isLogin,setIslogin] = useState(false)
   const [userName,setUserName] = useState("")
   const [togglemenu, setToggleMenu] = useState(false)
+  const{isLogin,setIsLogin} = useContext(LoginContext)
   
     const navigate = useNavigate()
     const data = Object.entries( useSelector(state=>state.products.cart))
@@ -19,12 +21,12 @@ let check = localStorage.getItem("token")
    
     if(localStorage.getItem("token"))
     {
-        setIslogin((value)=>!value)
+        setIsLogin(true)
       setUserName(name)
     }
     else
     {
-      setIslogin(value=>!value)
+      setIsLogin(false)
     }
   },[check])
  
@@ -32,18 +34,18 @@ const goToHome=()=>{
       navigate("/")
   
 }
-  console.log(userName,isLogin)
+  // console.log(userName,isLogin)
   const loginAccout=()=>{
     
     navigate("/login")
   }
   const logoutAccout=()=>{
-    setIslogin(!isLogin)
+    setIsLogin(false)
     localStorage.removeItem("token")
     localStorage.removeItem("name")
     navigate("/")
   }
-  console.log("navbar")
+  // console.log("navbar")
   return (
     <div id="navContainer">
       {/* { console.log(userName)} */}
@@ -52,7 +54,7 @@ const goToHome=()=>{
             <img src='https://media.istockphoto.com/id/1029895828/vector/shopping-bag-with-cart-logo-design-illustrator.jpg?s=612x612&w=0&k=20&c=HE8fwTY9FmqkEMY9qI-NFeQEo-g0cxE5xu6_fvZZrY0=' alt=""/>
             <h1 onClick={goToHome}>SHOPPER CART</h1>
             </div>
-              <div className='hamburgerMenu' onClick={()=>setToggleMenu(!togglemenu)}>
+              <div className='hamburgerMenu' onClick={(e)=>{e.stopPropagation();setToggleMenu(!togglemenu)}}>
             <div></div>
              <div></div>
             <div></div>

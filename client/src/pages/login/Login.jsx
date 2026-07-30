@@ -1,9 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import './login.css'
 import signup_logo from '../../assests/photos/signup_logo.png'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import {jwtDecode} from 'jwt-decode';
+import { LoginContext } from '../../utils/Authenticate'
 
 
 function Login() {
@@ -12,8 +13,9 @@ function Login() {
     password:""
   })
 
+  const {setIsLogin}  =useContext(LoginContext)
   const loginData=async(e)=>{
-    console.log("helolo")
+    // console.log("helolo")
     try{
       e.preventDefault()
     if(formData.email && formData.password)
@@ -21,11 +23,12 @@ function Login() {
       const res = await axios.post("https://shoppercartapi.onrender.com/api/v1/client/login",formData,{headers:{
          'Content-Type': 'application/json'
       }})
-      console.log(res.data)
+      // console.log(res.data)
           const decoded = jwtDecode(res.data.token);
          const {name} =decoded
          localStorage.setItem("token",res.data.token)
         localStorage.setItem("name",name)
+        setIsLogin(true)
         navigate('/')
 
     }
@@ -35,7 +38,7 @@ function Login() {
       console.log("error",err)
     }
   }
-  console.log(formData)
+  // console.log(formData)
   const getFormData =(e)=>{
     setFormData((val)=>{ return {...val,[e.target.name]:e.target.value}})
   }
@@ -46,8 +49,8 @@ function Login() {
   }
   return (
     <div id="formConatiner">
-      <div style={{width:"60%",display:"flex",height:"70%"}}>
-         <div style={{width:"60%"}}>
+      <div className="innerConatiner">
+         <div className="loginIcon">
       <img src={signup_logo} alt="logo" style={{width:"100%",height:"100%"}}/>
         </div>
             <div id="main">

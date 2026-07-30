@@ -3,10 +3,13 @@ import CartCard from '../../components/cartCard/CartCard'
 import './checkout.css'
 import {useSelector} from 'react-redux'
 
+import {useNavigate} from 'react-router-dom'
+
 
 function CheckOut() {
 
     const [amount,setAmount] = useState(0)
+    const navigate = useNavigate()
     
     // const [isLogin,setIsLogin] = useState(true)
     const data = Object.entries( useSelector(state=>state.products.cart))
@@ -27,7 +30,7 @@ function CheckOut() {
     },[data])
 
     const checkOutHandler=()=>{
-      
+      navigate("/cart")
     }
   
   return (
