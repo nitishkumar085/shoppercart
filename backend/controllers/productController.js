@@ -1,4 +1,4 @@
- const product = require("../models/product")
+const product = require("../models/product")
  
  const productData = async (req,res)=>{
     try{
@@ -30,4 +30,16 @@
     }
  }
 
- module.exports = {productData,addProduct}
+ const filterProduct = async(req,res)=>{
+    try{
+        // console.log(req.query)
+        const data = await product.find(req.query)
+        res.status(200).json({message:"success",data})
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+ }
+
+ module.exports = {productData,addProduct,filterProduct}

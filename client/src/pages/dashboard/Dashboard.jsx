@@ -94,13 +94,13 @@ function Dashboard() {
         <section className='category_section'>
             <h2><center>Category</center></h2>
             <div className='category_list'>
-            <div className='category_card' id='mens_clothing' onClick={goToCategory}>
+            <div className='category_card' id='mens' onClick={goToCategory}>
                 <div className='inner_category card_style'>Men's</div>
             </div>
-            <div className='category_card'id='women_clothing' onClick={goToCategory}>
+            <div className='category_card'id='womens' onClick={goToCategory}>
             <div className='inner_category' >Women's</div>
             </div>
-            <div className='category_card' id='electonics' onClick={goToCategory}>
+            <div className='category_card' id='electronics' onClick={goToCategory}>
             <div className='inner_category' >Electronics</div>
             </div>
             </div>

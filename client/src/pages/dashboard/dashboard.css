@@ -42,7 +42,7 @@
     /* border: 1px solid green; */
 }
 
-#mens_clothing
+#mens
 {
     background: url(https://prod-brandsgateway-images.s3.fr-par.scw.cloud/2019/04/mens-clothing-accessories-98c6b065-a1a.jpg);
     background-position: center;
@@ -56,7 +56,7 @@
     
 }
 
-#women_clothing
+#womens
 {
     background: url(https://www.thecreativecurator.com/wp-content/uploads/2021/07/playsuit-clothing-type-1024x576.jpg);
     background-position: center;
@@ -68,7 +68,7 @@
     /* border: 1px solid red; */
 }
 
-#electonics
+#electronics
 {
     background: url(https://img.freepik.com/free-photo/modern-stationary-collection-arrangement_23-2149309643.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1728345600&semt=ais_hybrid);
     background-position: center;

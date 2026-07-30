@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import './category.css'
 import axios from 'axios'
 import {useParams} from "react-router-dom"
+import Card from '../../components/card/Card'
 
 function Category()
 {
@@ -21,25 +22,27 @@ function Category()
     })
 
     useEffect(()=>{
-         axios.get("http://localhost:8000/api/v1/products/filterproduct",{params:{
+         axios.get("https://shoppercartapi.onrender.com/api/v1/products/filterproduct",{params:{
             category
         }}).then((res)=>setfilterproductListdata(res.data.data))
         .catch((err)=>console.log(err))
         
     },[])
     const markcategory=(e)=>{
+        console.log(e.target.name)
         setCheckedselectedCategory(true)
     }
     const generateFilterProductDataList = filterProductListData.map((value,ind)=>{
             return(
-                    <div className='product' key={ind}>
-                        <img src={value.thumbnail} className='productCardImage'/>
-                        <div>
-                            <h3>{value.title}</h3>
-                            <p>price and discount</p>
-                            <p>rating</p>
-                        </div>
-                    </div>
+                <Card key={ind} val={value}/>
+                    // <div className='product' key={ind}>
+                    //     <img src={value.thumbnail} className='productCardImage'/>
+                    //     <div>
+                    //         <h3>{value.title}</h3>
+                    //         <p>price and discount</p>
+                    //         <p>rating</p>
+                    //     </div>
+                    // </div>
             )
          
 
@@ -48,17 +51,25 @@ function Category()
         <div>
             <div>Home/mens</div>
         <div className="category_page_section">
+             
             <div className='category_list1'>
-                <div>
+                <h2 className='filtersList'>Filters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div style={{display:"inline-block"}}>
+                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
+                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
+                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
+                    </div></h2>
+                <div className="category_toggle">
+                <div >
+                
                     <h3 className='category_list_title'>Type</h3>
                     <div className='category_list2'>
-                        <p><input type="checkbox" className='details_checkbox' onChange={markcategory}/>&nbsp;&nbsp;&nbsp;T-Shirts</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Shirts</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Jeans</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Pants</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Gym cloths</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Suits</p>
-                        <p><input type="checkbox" className='details_checkbox'/>&nbsp;&nbsp;&nbsp;Undergarments</p>
+                        <p><input type="checkbox" name='t-shirts' className='details_checkbox' onChange={markcategory}/>&nbsp;&nbsp;&nbsp;T-Shirts</p>
+                        <p><input type="checkbox"  name='sharee'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Sharee</p>
+                        <p><input type="checkbox"  name='jeans'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Jeans</p>
+                        <p><input type="checkbox"  name='pants'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Pants</p>
+                        <p><input type="checkbox"  name='gym'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Gym cloths</p>
+                        <p><input type="checkbox"  name='suits'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Suits</p>
+                        <p><input type="checkbox"  name='undergarments'className='details_checkbox'onChange={markcategory}/>&nbsp;&nbsp;&nbsp;Undergarments</p>
                     </div>
                 </div>
                 <div>
@@ -96,12 +107,13 @@ function Category()
 
                     </div>
                 </div>
+                </div>
             </div>
             <div className='product_list1'>
                 <div className='sortingOptions'>
                     <div className='salesorting'>
                         <input type="checkbox"/>
-                        Show only products on sale
+                       &nbsp; Show only products on sale
                     </div>
                     <div>
                         <select className='sortItems'>

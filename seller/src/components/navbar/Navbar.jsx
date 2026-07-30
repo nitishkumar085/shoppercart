@@ -43,7 +43,7 @@ export default function Navbar() {
                 
                 <div className={style.registerOption}>
                    {/* <Link to="/login"> <button>Log in</button></Link> */}
-                     <Link to="/login"><button style={{background:"green",color:"white"}}> Login</button></Link>
+                     <Link to="/login"><button style={{background:"green",color:"white"}} onClick={()=>{setIsMenuOpen(false)}}> Login</button></Link>
                 </div>
             </div>
         </nav>
