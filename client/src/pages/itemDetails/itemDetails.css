@@ -13,6 +13,14 @@
   
 }
 
+.rainbow
+{
+  width:100%;
+  height:100vh;
+  background-color: red;
+  display: none;
+}
+
 .itemDetails_container-main
 {
   

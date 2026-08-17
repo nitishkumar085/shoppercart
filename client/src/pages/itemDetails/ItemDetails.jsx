@@ -3,8 +3,10 @@ import './itemDetails.css'
 import {useParams} from 'react-router-dom'
 import {useDispatch}  from 'react-redux'
 import {addToCart} from '../../slices/productSlice.js'
+import Loader from "../../utils/Loader.jsx"
 
 const ItemDetails=()=>{
+  const [isLoading,setisloading] = useState(false)
   const [productData,setProductData] = useState({})
   const [productIamge,setProductImage] = useState("")
   const [productQuantity,setProductQuantity] = useState(1)
@@ -12,9 +14,10 @@ const ItemDetails=()=>{
   
   const dispatch = useDispatch()
   useEffect(()=>{
+    setisloading(true);
   fetch(`https://dummyjson.com/products/${queryData.id}`)
   .then((res)=>res.json())
-    .then(data=>{setProductData(data);setProductImage(data.thumbnail)})
+    .then(data=>{setProductData(data);setProductImage(data.thumbnail);setisloading(false)}).catch(err=>{console.log(err)})
   },[queryData.id])
 
   const getImage=(val)=>{
@@ -47,12 +50,14 @@ const ItemDetails=()=>{
     }
     
   }
-  console.log(productData)
+  console.log(isLoading)
   // const filterdatta= data.filter()
   
 return(
+
   <div>
-  <div className="itemDetails_container">
+    {isLoading? <Loader height="100vh" width="100%"/>:<div>
+  <div className={"itemDetails_container"}>
     <div className="itemDetails_container-main">
       <div className="imageSection">
       
@@ -115,7 +120,9 @@ return(
     
   </div>
   
+  </div>}
   </div>
+
 )
 }
 

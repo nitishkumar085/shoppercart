@@ -51,7 +51,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.5;
     
     
 }
@@ -89,6 +88,8 @@
     padding-top: 12px;
     font-size: 20px;
     font-weight: 800;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 
 }
 
