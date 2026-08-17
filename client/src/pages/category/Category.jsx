@@ -49,15 +49,10 @@ function Category()
     })
     return (
         <div>
-            <div>Home/mens</div>
         <div className="category_page_section">
              
             <div className='category_list1'>
-                <h2 className='filtersList'>Filters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div style={{display:"inline-block"}}>
-                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
-                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
-                    <div style={{width:"50px",height:"5px",background:"white",marginTop:"5px"}}></div>
-                    </div></h2>
+               
                 <div className="category_toggle">
                 <div >
                 
