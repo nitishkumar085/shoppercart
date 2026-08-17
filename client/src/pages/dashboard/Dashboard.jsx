@@ -80,10 +80,11 @@ function Dashboard() {
     
 
     console.log(data.category)
-    const goToCategory = (e)=>{
-        console.log(e.target.id);
-        navigate(`/category/${e.target.id}`)
-    }
+    // const goToCategory = (e)=>{
+        
+    //     console.log(e.target.id);
+    //     navigate(`/category/${e.target.id}`)
+    // }
   return (
     <div className='mainConatiner'>
         
@@ -94,13 +95,13 @@ function Dashboard() {
         <section className='category_section'>
             <h2><center>Category</center></h2>
             <div className='category_list'>
-            <div className='category_card' id='mens' onClick={goToCategory}>
+            <div className='category_card' id='mens' onClick={(e)=>{e.stopPropagation(); navigate(`/category/mens`)}}>
                 <div className='inner_category card_style'>Men's</div>
             </div>
-            <div className='category_card'id='womens' onClick={goToCategory}>
+            <div className='category_card'id='womens' onClick={(e)=>{e.stopPropagation(); navigate(`/category/womens`)}}>
             <div className='inner_category' >Women's</div>
             </div>
-            <div className='category_card' id='electronics' onClick={goToCategory}>
+            <div className='category_card' id='electronics' onClick={(e)=>{e.stopPropagation(); navigate(`/category/electronics`)}}>
             <div className='inner_category' >Electronics</div>
             </div>
             </div>
