@@ -75,6 +75,20 @@ form div
 form .field{
     width: 100%;
 }
+
+.logininputField
+{
+  width:100%;
+  height:6vh;
+  border-radius:5px;
+  border:none;
+  outline:none;
+  box-shadow:0px 2px 5px black;
+  font-size:1.1vw;
+  margin-top:10px;
+  padding:10px;
+  color:darkblue
+}
 /* form style ends*/
 
 @media only screen and (max-width:520px){
@@ -85,7 +99,7 @@ form .field{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:rgb(185, 182, 182);
+    background:rgba(233, 238, 238, 0.753);
     /* border:1px solid rgb(0, 255, 136); */
 
 
@@ -114,7 +128,7 @@ form .field{
     flex-direction: column;
   justify-content:center;
   align-items:center;
-    
+   
     padding: 10px;
     row-gap: 5px;
     /* border:1px solid rgb(0, 255, 162); */
@@ -168,6 +182,19 @@ form div
 form .field{
     width: 100%;
     /* border:1px solid red; */
+}
+.logininputField
+{
+  width:100%;
+  height:6vh;
+  border-radius:5px;
+  border:none;
+  outline:none;
+  box-shadow:0px 2px 5px black;
+  font-size:5vw;
+  margin-top:10px;
+  padding:10px;
+  color:darkblue
 }
 
 }

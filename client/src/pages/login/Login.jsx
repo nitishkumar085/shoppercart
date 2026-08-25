@@ -64,11 +64,11 @@ function Login() {
                     <div className=''>
                        
                         <div>
-                            <input className='inputField' type="text" id="userName" placeholder='enter Email'  name="email" onChange={getFormData}/>
+                            <input className='logininputField' type="text" id="userName" placeholder='enter Email'  name="email" onChange={getFormData}/>
                         </div>
                         
                         <div>
-                            <input  className='inputField' type="password" id="password" placeholder='enter password' name="password" onChange={getFormData}/>
+                            <input  className='logininputField' type="password" id="password" placeholder='enter password' name="password" onChange={getFormData}/>
                         </div>
                         <div style={{height:"20px"}} >
                             <p style={{float:"right",color:"red",fontSize:"12px"}}>forget password?</p>
