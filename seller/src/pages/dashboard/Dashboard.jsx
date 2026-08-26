@@ -1,26 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
+import { SellerContext } from '../../authMiddleware/AuthUser';
+import { Outlet, useNavigate } from 'react-router-dom';
 import styles from './dashboard.module.css';
 import { 
   FiHome, FiBox, FiShoppingCart, FiUsers, 
   FiRadio, FiBarChart2, FiCreditCard, FiSettings, 
   FiLogOut, FiSearch, FiBell, FiMail, FiChevronDown 
 } from 'react-icons/fi';
+import Inventory from '../inventory/Inventory';
 
 const Dashboard = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
 
+  const navigate =  useNavigate()
+
+  const {setIsLogin} = useContext(SellerContext)
+
   const navItems = [
     { name: 'Home', icon: <FiHome /> },
-    { name: 'Inventory', icon: <FiBox /> },
-    { name: 'Orders', icon: <FiShoppingCart /> },
-    { name: 'Customers', icon: <FiUsers /> },
-    { name: 'Marketing', icon: <FiRadio /> },
-    { name: 'Analytics', icon: <FiBarChart2 /> },
-    { name: 'Payments', icon: <FiCreditCard /> },
-    { name: 'Settings', icon: <FiSettings /> },
+    { name: 'inventory', icon: <FiBox /> },
+    { name: 'order', icon: <FiShoppingCart /> },
+    { name: 'customers', icon: <FiUsers /> },
+    { name: 'marketing', icon: <FiRadio /> },
+    { name: 'analytics', icon: <FiBarChart2 /> },
+    { name: 'payment', icon: <FiCreditCard /> },
+    { name: 'settings', icon: <FiSettings /> },
   ];
-
+const logoutUser = ()=>{
+localStorage.removeItem("token");
+setIsLogin(false)
+navigate("/login")
+}
   return (
     <div className={styles.dashboardContainer}>
       {/* SIDEBAR */}
@@ -40,7 +51,7 @@ const Dashboard = () => {
             <button
               key={item.name}
               className={`${styles.navItem} ${activeTab === item.name ? styles.activeNav : ''}`}
-              onClick={() => setActiveTab(item.name)}
+              onClick={() =>{if(item.name!=="Home")navigate(`/dashboard/${item.name}`)}}
             >
               <span className={styles.navIcon}>{item.icon}</span>
               <span className={styles.navText}>{item.name}</span>
@@ -48,7 +59,7 @@ const Dashboard = () => {
           ))}
         </nav>
 
-        <button className={styles.logoutBtn}>
+        <button className={styles.logoutBtn} onClick={logoutUser}>
           <FiLogOut /> <span className={styles.navText}>Logout</span>
         </button>
       </aside>
@@ -114,8 +125,8 @@ const Dashboard = () => {
         <main className={styles.contentBody}>
           <div className={styles.cardPlaceholder}>
             {/* Inject your specific screen sub-modules/components here based on activeTab */}
-            <h3>{activeTab} Content View</h3>
-            <p>Ready for your data widgets...</p>
+           <Outlet/>
+            
           </div>
         </main>
 

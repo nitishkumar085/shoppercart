@@ -4,12 +4,15 @@ import appIcon from '../../assets/icons/appIcon.png'
 
 
 
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import style from './Navbar.module.css'; // Assuming you use CSS Modules based on your syntax
 import { Link } from 'react-router-dom';
+import { SellerContext } from '../../authMiddleware/AuthUser';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+     const {isLogin, setIsLogin} = useContext(SellerContext)
+    
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -43,7 +46,7 @@ export default function Navbar() {
                 
                 <div className={style.registerOption}>
                    {/* <Link to="/login"> <button>Log in</button></Link> */}
-                     <Link to="/login"><button style={{background:"green",color:"white"}} onClick={()=>{setIsMenuOpen(false)}}> Login</button></Link>
+                     <Link to={isLogin? "/dashboard":"/login"}><button style={isLogin?{background:"black",color:"white"}:{background:"green",color:"white"}} onClick={()=>{setIsMenuOpen(false)}}>{isLogin? "Dashboard":"Login"}</button></Link>
                 </div>
             </div>
         </nav>

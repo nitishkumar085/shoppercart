@@ -5,6 +5,13 @@ import Login from '../pages/login/Login'
 import Signup from '../pages/signup/Signup'
 import Dashboard from '../pages/dashboard/Dashboard'
 import ProtectedRoutes from '../auth/ProtectedRoutes'
+import Inventory from '../pages/inventory/Inventory'
+import Orders from '../pages/orders/Orders'
+import Marketing from '../pages/marketing/Marketing'
+import Analytics from '../pages/analytics/Analytics'
+import Payments from '../pages/payments/Payments'
+import Settings from '../pages/settings/Settings'
+import Customers from '../pages/customers/Customers'
 
 
 const router = createBrowserRouter([{
@@ -28,7 +35,37 @@ const router = createBrowserRouter([{
             children:[
                 {
                     path:"dashboard",
-                    element:<Dashboard/>
+                    element:<Dashboard/>,
+                    children:[
+                        {
+                            path:"inventory",
+                            element:<Inventory/>
+                        },
+                        {
+                            path:"order",
+                            element:<Orders/>
+                        },
+                        {
+                            path:"customers",
+                            element:<Customers/>
+                        },
+                        {
+                            path:"marketing",
+                            element:<Marketing/>
+                        },
+                        {
+                            path:"analytics",
+                            element:<Analytics/>
+                        },{
+                            path:"payment",
+                            element:<Payments/>
+                        },
+                        {
+                            path:"settings",
+                            element:<Settings/>
+                        }
+                    ]
+
 
                 }
             ]

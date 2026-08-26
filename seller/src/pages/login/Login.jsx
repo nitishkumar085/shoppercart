@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import styles from './login.module.css';
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import { SellerContext } from '../../authMiddleware/AuthUser';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
+  
+  const {setIsLogin} = useContext(SellerContext)
+
+ 
+
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Logging in with:', { email, password, rememberMe });
+    localStorage.setItem("token","shgdashijdaskljcfk;dslk;")
+    setIsLogin(true)
+    navigate("/dashboard")
+
   };
 
   return (
@@ -79,7 +90,7 @@ export default function Login() {
         </div>
 
         {/* Login Button */}
-        <button type="submit" className={styles.btnSubmit}>
+        <button type="submit" className={styles.btnSubmit} >
           <i className="fa-solid fa-lock"></i> Login
         </button>
       </form>

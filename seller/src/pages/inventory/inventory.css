@@ -1,0 +1,49 @@
+.inventorySection{
+    width:100%;
+    height: 100vh;
+    border:1px solid green;
+    margin: 0;
+    padding: 20px;
+}
+
+.inventoryTitle
+{
+    text-align: left;
+    color: #1a1a1a;;
+        margin: 0 0 0.25rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.inventoryOverviewPerformancesection
+{
+    width: 100%;
+    height: 60vh;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    gap:12px;
+}
+
+.inventoryOverview
+{
+    width:35rem;
+    height:100% ;
+    border: 1px solid red;
+}
+
+.inventoryOverview div h4
+{
+    text-align: left;
+    color: #1a1a1a;;
+        margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.inventoryPerformance
+{
+    width:37rem;
+    height:100% ;
+    border: 1px solid red;
+}
