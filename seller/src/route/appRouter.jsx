@@ -12,6 +12,7 @@ import Analytics from '../pages/analytics/Analytics'
 import Payments from '../pages/payments/Payments'
 import Settings from '../pages/settings/Settings'
 import Customers from '../pages/customers/Customers'
+import DashboardHome from '../pages/dashboardHome/DashboardHome'
 
 
 const router = createBrowserRouter([{
@@ -37,6 +38,10 @@ const router = createBrowserRouter([{
                     path:"dashboard",
                     element:<Dashboard/>,
                     children:[
+                        {
+                            index:true,
+                            element:<DashboardHome/>
+                        },
                         {
                             path:"inventory",
                             element:<Inventory/>

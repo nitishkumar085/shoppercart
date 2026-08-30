@@ -23,7 +23,7 @@ export default function Login() {
     navigate("/dashboard")
 
   };
-
+// console.log(password)
   return (
     <main className={styles.loginContainer}>
       {/* Icon Header */}

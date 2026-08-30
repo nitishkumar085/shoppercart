@@ -7,6 +7,7 @@ import ProductForm from "./components/productForm/ProductForm"
 import Dashboard from "./pages/dashboard/Dashboard"
 
 import {Outlet} from 'react-router-dom'
+import Inventory from "./pages/inventory/Inventory"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       {/* <Home/> */}
       {/* <ProductForm/> */}
       {/* <Dashboard/> */}
+      {/* <Inventory/> */}
       <Footer/>
       {/* hello */}
     </>

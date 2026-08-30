@@ -51,7 +51,7 @@ navigate("/login")
             <button
               key={item.name}
               className={`${styles.navItem} ${activeTab === item.name ? styles.activeNav : ''}`}
-              onClick={() =>{if(item.name!=="Home")navigate(`/dashboard/${item.name}`)}}
+              onClick={() =>{item.name==="Home"? navigate("/dashboard"):navigate(`/dashboard/${item.name}`)}}
             >
               <span className={styles.navIcon}>{item.icon}</span>
               <span className={styles.navText}>{item.name}</span>
