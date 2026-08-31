@@ -35,6 +35,8 @@
   max-width:1000px;
   margin:0 auto;
   padding:28px 24px 48px;
+  /* border: 1px solid red; */
+  /* display: none; */
 }
 
 .sh-card{
@@ -408,11 +410,12 @@
 }
 
 @media (max-width: 560px){
-  .sh-dashboard{ padding:16px 14px 32px; }
-  .sh-card{ border-radius:12px; }
+  .sh-dashboard{ padding:16px 14px 32px;  margin:0; width: 100%;
+ }
+  .sh-card{ border-radius:12px}
 
-  .sh-greeting h1{ font-size:20px; }
-  .sh-banner-text h2{ font-size:19px; }
+  .sh-greeting h1{ font-size:20px;width:50vh; }
+  .sh-banner-text h2{ font-size:19px;width:50vh; }
   .sh-banner-art{ display:none; }
 
   .sh-stat-row{ grid-template-columns:1fr 1fr; gap:10px; }
@@ -428,7 +431,8 @@
 }
 
 @media (max-width: 400px){
-  .sh-dashboard{ padding:14px 10px 28px; }
+  
+  .sh-dashboard{ padding:14px 10px 28px;max-width: 95vw; }
   .sh-greeting h1{ font-size:18px; }
   .sh-greeting p{ font-size:12.5px; }
 
@@ -438,7 +442,14 @@
   .sh-chart-labels span{ font-size:9px; }
 
   .sh-qa-grid{ grid-template-columns:1fr 1fr; }
-  .sh-qa-item{ padding:12px 10px; }
+   .sh-banner{ flex-direction:column; align-items:flex-start; padding:26px 5px; }
+  .sh-qa-item{ padding:12px 10px;width:22vh; }
+  .sh-banner-text p{
+  font-size:3.5vw;
+  color:#3c4a41;
+  line-height:1.5;
+  margin:0 0 18px;
+}
 }
 
 @media (prefers-reduced-motion: reduce){

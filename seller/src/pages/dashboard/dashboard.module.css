@@ -30,6 +30,7 @@
   height: 100vh;
   box-sizing: border-box;
   z-index: 10;
+  /* display: none; */
 }
 
 .logoSection {
@@ -125,7 +126,7 @@
 
 /* --- MAIN WRAPPER --- */
 .mainWrapper {
-  margin-left: 240px;
+  /* margin-left: 240px; */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -199,86 +200,11 @@
 .badgeBell { background-color: var(--badge-red); }
 .badgeMail { background-color: var(--badge-orange); }
 
-/* --- PROFILE DROPDOWN --- */
-.profileContainer {
-  position: relative;
-}
 
-.profileDropdownTrigger {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  padding: 4px 10px 4px 4px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.profileDropdownTrigger:hover {
-  background-color: var(--bg-main);
-}
-
-.avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profileName {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.arrow {
-  color: var(--text-muted);
-  transition: transform 0.2s;
-}
-
-.arrowRotate {
-  transform: rotate(180deg);
-}
-
-.dropdownMenu {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 8px);
-  background-color: var(--bg-sidebar);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  width: 150px;
-  padding: 0.5rem 0;
-  z-index: 20;
-}
-
-.dropdownItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: background 0.15s;
-}
-
-.dropdownItem:hover {
-  background-color: var(--bg-main);
-}
-
-.divider {
-  border: 0;
-  border-top: 1px solid var(--border-color);
-  margin: 0.25rem 0;
-}
 
 /* --- BODY & CONTENT --- */
 .contentBody {
-  padding: 2rem;
+  padding: 0.5rem;
   flex-grow: 1;
 }
 
@@ -306,7 +232,7 @@
 @media (max-width: 900px) {
   .sidebar {
     width: 70px;
-    padding: 1.5rem 0.5rem;
+    padding: 5rem 0.5rem;
     align-items: center;
   }
   .brandName, .brandSub, .navText {
@@ -321,7 +247,7 @@
     padding: 0.75rem;
   }
   .mainWrapper {
-    margin-left: 70px;
+    margin-left: 0px;
   }
 }
 
@@ -337,6 +263,7 @@
     justify-content: flex-end;
   }
   .contentBody {
-    padding: 1rem;
+    padding: 0.3rem;
+    /* display: none; */
   }
 }

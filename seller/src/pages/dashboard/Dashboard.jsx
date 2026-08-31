@@ -12,6 +12,7 @@ import Inventory from '../inventory/Inventory';
 const Dashboard = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
+  const [isToggle, setIsToggle ] = useState(true)
 
   const navigate =  useNavigate()
 
@@ -35,7 +36,7 @@ navigate("/login")
   return (
     <div className={styles.dashboardContainer}>
       {/* SIDEBAR */}
-      <aside className={styles.sidebar}>
+      {isToggle? <div style={{width:"240px",height:"95vh",position:"fixed",background:"none",padding:"20px"}}> <div style={{width:"70px",height:"70px",background:"gray", position:"absolute",bottom:"0px", borderRadius:"50%"}} onClick={()=>{setIsToggle(false)}}></div></div>:<aside className={styles.sidebar}>
         {/* <div className={styles.logoSection}>
           <div className={styles.logoIcon}>
             <FiShoppingCart size={20} />
@@ -51,7 +52,7 @@ navigate("/login")
             <button
               key={item.name}
               className={`${styles.navItem} ${activeTab === item.name ? styles.activeNav : ''}`}
-              onClick={() =>{item.name==="Home"? navigate("/dashboard"):navigate(`/dashboard/${item.name}`)}}
+              onClick={() =>{item.name==="Home"? navigate("/dashboard"):navigate(`/dashboard/${item.name}`);setIsToggle(true)}}
             >
               <span className={styles.navIcon}>{item.icon}</span>
               <span className={styles.navText}>{item.name}</span>
@@ -62,7 +63,8 @@ navigate("/login")
         <button className={styles.logoutBtn} onClick={logoutUser}>
           <FiLogOut /> <span className={styles.navText}>Logout</span>
         </button>
-      </aside>
+      </aside>}
+      
 
       {/* MAIN CONTENT AREA */}
       <div className={styles.mainWrapper}>
@@ -88,36 +90,7 @@ navigate("/login")
               <span className={`${styles.badge} ${styles.badgeMail}`}>2</span>
             </button>
 
-            {/* Profile Dropdown */}
-            <div className={styles.profileContainer}>
-              <button 
-                className={styles.profileDropdownTrigger}
-                onClick={() => setIsProfileOpen(!isProfileOpen)}
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" 
-                  alt="Avatar" 
-                  className={styles.avatar} 
-                />
-                <span className={styles.profileName}>My Store</span>
-                <FiChevronDown size={14} className={`${styles.arrow} ${isProfileOpen ? styles.arrowRotate : ''}`} />
-              </button>
-
-              {isProfileOpen && (
-                <div className={styles.dropdownMenu}>
-                  <a href="#mystore" className={styles.dropdownItem}>
-                    <FiShoppingCart size={14} /> My Store
-                  </a>
-                  <a href="#plan" className={styles.dropdownItem}>
-                    <FiBox size={14} /> Plan Info
-                  </a>
-                  <hr className={styles.divider} />
-                  <a href="#logout" className={styles.dropdownItem}>
-                    <FiLogOut size={14} /> Logout
-                  </a>
-                </div>
-              )}
-            </div>
+            
           </div>
         </header>
 
@@ -130,10 +103,7 @@ navigate("/login")
           </div>
         </main>
 
-        {/* FOOTER BRANDING */}
-        <footer className={styles.footerBranding}>
-          <FiShoppingCart size={14} /> <span>ShopEase</span>
-        </footer>
+       
       </div>
     </div>
   );
