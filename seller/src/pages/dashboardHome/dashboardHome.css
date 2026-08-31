@@ -443,7 +443,7 @@
 
   .sh-qa-grid{ grid-template-columns:1fr 1fr; }
    .sh-banner{ flex-direction:column; align-items:flex-start; padding:26px 5px; }
-  .sh-qa-item{ padding:12px 10px;width:22vh; }
+  .sh-qa-item{ padding:12px 10px;width:39vw; }
   .sh-banner-text p{
   font-size:3.5vw;
   color:#3c4a41;
