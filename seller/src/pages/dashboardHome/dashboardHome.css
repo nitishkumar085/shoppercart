@@ -415,7 +415,7 @@
   .sh-card{ border-radius:12px}
 
   .sh-greeting h1{ font-size:20px;width:50vh; }
-  .sh-banner-text h2{ font-size:19px;width:50vh; }
+  .sh-banner-text h2{ font-size:19px;width:50vw; }
   .sh-banner-art{ display:none; }
 
   .sh-stat-row{ grid-template-columns:1fr 1fr; gap:10px; }
@@ -433,7 +433,7 @@
 @media (max-width: 400px){
   
   .sh-dashboard{ padding:14px 10px 28px;max-width: 95vw; }
-  .sh-greeting h1{ font-size:18px; }
+  .sh-greeting h1{ font-size:18px;width: 76vw; }
   .sh-greeting p{ font-size:12.5px; }
 
   .sh-stat-row{ grid-template-columns:1fr; }
