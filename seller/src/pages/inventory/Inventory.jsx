@@ -154,23 +154,7 @@ export default function Inventory() {
       <header className="inv-header">
         <h1 className="inv-title">Inventory Overview &amp; Actions</h1>
         <h2 className="inv-subtitle">Inventory Performance &amp; Alerts</h2>
-        <div className="inv-account-menu">
-          <button
-            className="inv-account-trigger"
-            aria-expanded={menuOpen}
-            aria-haspopup="true"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className="inv-dot" /> Account
-          </button>
-          {menuOpen && (
-            <div className="inv-account-dropdown open">
-              <a href="#">My Store</a>
-              <a href="#">Plan Info</a>
-              <a href="#">Logout</a>
-            </div>
-          )}
-        </div>
+        
       </header>
 
       {/* Top row: value card + performance/alerts card */}
