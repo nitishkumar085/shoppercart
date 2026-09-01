@@ -1,55 +1,60 @@
 import { useState } from "react";
 import "./orders.css";
 
-const STATUS_DATA = [
-  { label: "Delivered", value: 45, color: "var(--c-delivered)" },
-  { label: "Processing", value: 25, color: "var(--c-processing)" },
-  { label: "Cancelled", value: 12, color: "var(--c-cancelled)" },
-  { label: "On Hold", value: 10, color: "var(--c-onhold)" },
-  { label: "Returned", value: 8, color: "var(--c-returned)" },
+/* ---------------- Data ---------------- */
+
+const GROWTH_TREND = [20, 32, 24, 40, 30, 46, 36, 54, 44, 62];
+
+const SEGMENTS = [
+  { label: "Loyal", value: 147, color: "var(--teal)" },
+  { label: "At-Risk", value: 103, color: "var(--amber)" },
+  { label: "New", value: 36, color: "var(--grey)" },
+  { label: "Inactive", value: 23, color: "var(--coral)" },
 ];
 
-const ORDER_BAR_PAIRS = [
-  [40, 55], [30, 70], [65, 50], [35, 45], [55, 80], [45, 60], [70, 40],
+const CSAT = [
+  { label: "Satisfied", value: 55, color: "var(--green)" },
+  { label: "Neutral", value: 20, color: "var(--blue)" },
+  { label: "Unsatisfied", value: 15, color: "var(--amber)" },
+  { label: "Highly Unsatisfied", value: 10, color: "var(--coral)" },
 ];
 
-const SPARK_POINTS = [10, 22, 18, 30, 26, 40, 34, 48, 44, 58];
-
-const FULFILL_BARS = [30, 45, 55, 40, 65, 50, 75, 60, 80, 70, 85, 65];
-
-const TABS = [
-  "All Orders",
-  "Active Orders",
-  "Awaiting Fulfillment",
-  "Shipped",
-  "Returned",
-  "Cancelled",
+const CUSTOMERS = [
+  { name: "Sarah Chen", email: "sarahche@gmail.com", phone: "(31)223-5737", orders: 9, value: "$125.00", join: "07/01/2021", score: 85 },
+  { name: "David Lee", email: "davidLee@gmail.com", phone: "(31)223-5806", orders: 39, value: "$125.00", join: "04/01/2021", score: 82 },
+  { name: "Fatima Khan", email: "fatimakhan gmail.com", phone: "(31)223-5354", orders: 35, value: "$150.00", join: "05/01/2021", score: 78 },
+  { name: "Aman Singh", email: "encnten@gmail.com", phone: "(31)123-5583", orders: 56, value: "$120.00", join: "06/01/2021", score: 70 },
+  { name: "Anooha Rhtan", email: "boopett@gmail.com", phone: "(91)223-4587", orders: 3, value: "$55.00", join: "05/01/2022", score: 50 },
+  { name: "David Chen", email: "cano22@gmail.com", phone: "(91)223-5539", orders: 24, value: "$100.00", join: "09/01/2022", score: 45 },
+  { name: "Driva Kamas", email: "vilimenia@gmail.com", phone: "(91)223-5638", orders: 12, value: "$55.00", join: "08/01/2022", score: 38 },
+  { name: "Aman Singh", email: "amixser@gmail.com", phone: "(51)223-5589", orders: 11, value: "$55.00", join: "09/07/2022", score: 25 },
+  { name: "Karan Mehtar", email: "pracnecr@gmail.com", phone: "(71)223-5757", orders: 5, value: "$50.00", join: "06/07/2022", score: 60 },
+  { name: "Arran Singh", email: "email2@gmail.com", phone: "(91)223-5539", orders: 11, value: "$55.00", join: "08/12/2023", score: 22 },
+  { name: "Aman Singh", email: "chenna@gmail.com", phone: "(91)223-5669", orders: 11, value: "$55.00", join: "05/10/2023", score: 65 },
+  { name: "David Chen", email: "neen@gmail.com", phone: "(91)223-5845", orders: 9, value: "$55.00", join: "09/10/2023", score: 72 },
+  { name: "Fatima Khan", email: "carrebt@gmail.com", phone: "(91)223-5689", orders: 7, value: "$55.00", join: "07/11/2023", score: 68 },
 ];
 
-const ORDERS = [
-  { id: "#120370", date: "01/01/2020", name: "Karan Mehtar", product: "AuraSmart Speaker x2", addr: "Jashion S…", amount: "$125.00", status: "Shipped", action: "View Details" },
-  { id: "#120371", date: "01/01/2021", name: "Priya Patel", product: "Apex Gadets", addr: "Electronic…", amount: "$150.00", status: "Processing", action: "Print Label" },
-  { id: "#120372", date: "01/01/2021", name: "Priya Patel", product: "Apsx Gagets", addr: "Fashion R…", amount: "$125.00", status: "Processing", action: "View Details" },
-  { id: "#120373", date: "01/01/2023", name: "Priya Patel", product: "AuraSmart", addr: "Electronic…", amount: "$250.00", status: "Shipped", action: "View Details" },
-  { id: "#120374", date: "01/01/2023", name: "Priya Patel", product: "AuraSmart", addr: "Electronic…", amount: "$125.00", status: "Shipped", action: "View Details" },
-  { id: "#120375", date: "05/01/2023", name: "Karan Mehtar", product: "AuraSmart", addr: "Electronic…", amount: "$120.00", status: "Shipped", action: "Print Label" },
-  { id: "#120375", date: "03/01/2024", name: "Priya Patel", product: "AuraSmart x2", addr: "Electronics", amount: "$125.00", status: "Shipped", action: "View Details" },
-  { id: "#120376", date: "08/01/2025", name: "Priya Patel", product: "AuraSmart x2", addr: "Electronic…", amount: "$120.00", status: "Processing", action: "Print Label" },
-  { id: "#120377", date: "08/01/2024", name: "Aman Singh", product: "AuraSmart Speaker", addr: "Fashion S…", amount: "$100.00", status: "Processing", action: "View Details" },
-  { id: "#120378", date: "01/05/2029", name: "Aman Singh", product: "AnraSmart x2", addr: "Boring Me…", amount: "$100.00", status: "Processing", action: "View Details" },
-  { id: "#120379", date: "03/01/2021", name: "Aman Singh", product: "AuraSmart x2", addr: "Fashion …", amount: "$105.00", status: "Shipped", action: "Print Label" },
-  { id: "#120370", date: "07/06/2023", name: "Karan Mehtar", product: "AuraSmart x2", addr: "Electronics", amount: "$55.00", status: "Shipped", action: "View Details" },
-  { id: "#120371", date: "07/06/2023", name: "Karan Mehtar", product: "AuraSmart x2", addr: "Fashion …", amount: "$55.00", status: "Shipped", action: "Print Label" },
-  { id: "#120372", date: "07/05/2038", name: "Vicran Kapor", product: "AuraSmart x2", addr: "Electronics", amount: "$55.00", status: "Shipped", action: "Print Label" },
+const TOP_SPENDING = [
+  "Sarah Chen - $105,250",
+  "David Lee - $150,000",
+  "Fatima Khan - $120,000",
 ];
 
-const SHIPMENTS = [
-  { id: "#120371", carrier: "FedEx" },
-  { id: "#120372", carrier: "FedEx" },
-  { id: "#120373", carrier: "FedEx" },
-  { id: "#120374", carrier: "FedEx" },
-  { id: "#120374", carrier: "FedEx" },
+const CHURN_ALERTS = [
+  { text: "Aman Singh - 90 Days", tone: "coral" },
+  { text: "medium i'han - 120 Days", tone: "amber" },
+  { text: "Fatima Khan - 120 Days", tone: "amber" },
+  { text: "Arman Singh - 100 Days", tone: "teal" },
 ];
+
+function scoreColor(score) {
+  if (score >= 65) return "var(--teal)";
+  if (score >= 40) return "var(--amber)";
+  return "var(--coral)";
+}
+
+/* ---------------- Chart pieces ---------------- */
 
 function Sparkline({ points, width = 260, height = 56 }) {
   const max = Math.max(...points);
@@ -57,163 +62,140 @@ function Sparkline({ points, width = 260, height = 56 }) {
   const step = width / (points.length - 1);
   const coords = points.map((p, i) => {
     const x = i * step;
-    const y = height - ((p - min) / (max - min)) * (height - 8) - 4;
+    const y = height - ((p - min) / (max - min || 1)) * (height - 8) - 4;
     return [x, y];
   });
-  const linePath = coords.map((c, i) => (i === 0 ? "M" : "L") + c[0] + "," + c[1]).join(" ");
-  const areaPath = `${linePath} L${width},${height} L0,${height} Z`;
+  const line = coords.map((c, i) => (i === 0 ? "M" : "L") + c[0] + "," + c[1]).join(" ");
+  const area = `${line} L${width},${height} L0,${height} Z`;
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width="100%" height="100%" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0f9d8e" stopOpacity="0.28" />
+        <linearGradient id="cdSparkFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0f9d8e" stopOpacity="0.25" />
           <stop offset="100%" stopColor="#0f9d8e" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <path d={areaPath} fill="url(#sparkFill)" stroke="none" />
-      <path d={linePath} fill="none" stroke="#0f9d8e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={area} fill="url(#cdSparkFill)" stroke="none" />
+      <path d={line} fill="none" stroke="#0f9d8e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function GroupedBars({ pairs }) {
+function SegmentBars({ data, height = 130 }) {
+  const max = Math.max(...data.map((d) => d.value));
   return (
-    <div className="bars">
-      {pairs.map(([a, b], i) => (
-        <div className="bar-pair" key={i}>
-          <div className="seg dark" style={{ height: `${a}%` }} />
-          <div className="seg light" style={{ height: `${b}%` }} />
-        </div>
-      ))}
+    <div className="cd-barchart" style={{ height }}>
+      <div className="cd-barchart-plot">
+        {data.map((d) => (
+          <div className="cd-bar-col" key={d.label}>
+            <span className="cd-bar-value">{d.value}</span>
+            <div className="cd-bar-track">
+              <div className="cd-bar-fill" style={{ height: `${(d.value / max) * 100}%`, background: d.color }} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="cd-barchart-labels">
+        {data.map((d) => (
+          <span key={d.label}>{d.label}</span>
+        ))}
+      </div>
     </div>
   );
 }
 
-function MiniBars({ values }) {
-  return (
-    <div className="mini-bars">
-      {values.map((v, i) => (
-        <div className="bar" key={i} style={{ height: `${v}%` }} />
-      ))}
-    </div>
-  );
-}
-
-function Donut({ data, size = 120, r = 46, stroke = 18 }) {
+function Donut({ data, size = 116, r = 46, stroke = 16, center }) {
   const cx = size / 2;
   const cy = size / 2;
   const circumference = 2 * Math.PI * r;
-  let offsetAcc = 0;
+  let acc = 0;
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="donut">
-      {data.map((seg, i) => {
-        const len = (seg.value / 100) * circumference;
-        const dashoffset = -offsetAcc;
-        offsetAcc += len;
-        return (
-          <circle
-            key={i}
-            cx={cx}
-            cy={cy}
-            r={r}
-            fill="none"
-            stroke={seg.color}
-            strokeWidth={stroke}
-            strokeDasharray={`${len} ${circumference - len}`}
-            strokeDashoffset={dashoffset}
-            transform={`rotate(-90 ${cx} ${cy})`}
-          />
-        );
-      })}
-    </svg>
+    <div className="cd-donut-holder" style={{ width: size, height: size }}>
+      <svg viewBox={`0 0 ${size} ${size}`} className="cd-donut">
+        {data.map((seg, i) => {
+          const len = (seg.value / 100) * circumference;
+          const dashoffset = -acc;
+          acc += len;
+          return (
+            <circle
+              key={i}
+              cx={cx}
+              cy={cy}
+              r={r}
+              fill="none"
+              stroke={seg.color}
+              strokeWidth={stroke}
+              strokeDasharray={`${len} ${circumference - len}`}
+              strokeDashoffset={dashoffset}
+              transform={`rotate(-90 ${cx} ${cy})`}
+            />
+          );
+        })}
+      </svg>
+      {center && (
+        <div className="cd-donut-center">
+          <span className="cd-donut-center-value">{center.value}</span>
+          <span className="cd-donut-center-label">{center.label}</span>
+        </div>
+      )}
+    </div>
   );
 }
 
+/* ---------------- Main component ---------------- */
+
 export default function Orders() {
-  const [activeTab, setActiveTab] = useState(TABS[0]);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
 
-  const filteredOrders = ORDERS.filter((o) => {
+  const filtered = CUSTOMERS.filter((c) => {
     const q = search.trim().toLowerCase();
     if (!q) return true;
-    return (
-      o.id.toLowerCase().includes(q) ||
-      o.name.toLowerCase().includes(q) ||
-      o.product.toLowerCase().includes(q)
-    );
+    return c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q);
   });
 
   return (
-    <div className="dashboard">
+    <div className="cd-dashboard">
       {/* Header */}
-      <header className="dash-header">
+      <header className="cd-header">
         <h1>Orders Overview &amp; Actions</h1>
-        <div className="account-menu">
-          <button
-            className="account-trigger"
-            aria-expanded={menuOpen}
-            aria-haspopup="true"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className="dot" /> Account
-          </button>
-          {menuOpen && (
-            <div className="account-dropdown open">
-              <a href="#">My Store</a>
-              <a href="#">Plan Info</a>
-              <a href="#">Logout</a>
-            </div>
-          )}
-        </div>
+        <span className="cd-welcome">Welcome back, Seller!</span>
       </header>
 
-      {/* Stat cards */}
-      <section className="stat-row">
-        <article className="card stat-card">
-          <div className="stat-top">
-            <span className="stat-label">Total Order Value</span>
+      {/* Top row */}
+      <section className="cd-top-row">
+        <article className="cd-card cd-growth-card">
+          <div className="cd-card-head">
+            <span className="cd-label">Total Customer Growth</span>
+            <span className="cd-pill cd-pill-up">+8.5%</span>
           </div>
-          <div className="stat-main">
-            <span className="stat-value">$150,000.00</span>
-            <span className="pill pill-up">+12.5%</span>
-          </div>
-          <p className="stat-sub">+12.5% vs. prev 30 days</p>
-          <div className="spark">
-            <Sparkline points={SPARK_POINTS} />
-          </div>
-          <div className="stat-axis">
+          <span className="cd-value">$105,250</span>
+          <p className="cd-sub">+12.5% vs. prev 30 days</p>
+          <div className="cd-spark"><Sparkline points={GROWTH_TREND} /></div>
+          <div className="cd-axis">
             <span>$5K</span>
             <span>Last 30 days</span>
           </div>
         </article>
 
-        <article className="card stat-card">
-          <div className="stat-top">
-            <span className="stat-label">Total Orders</span>
+        <article className="cd-card cd-segments-card">
+          <div className="cd-card-head">
+            <span className="cd-label">Customer Segments</span>
+            <span className="cd-pill cd-pill-up">+10.2%</span>
           </div>
-          <div className="stat-main">
-            <span className="stat-value">
-              2,150 <small>orders</small>
-            </span>
-            <span className="pill pill-up">+8.1%</span>
-          </div>
-          <p className="stat-sub">+12.1% vs. prev 30 days</p>
-          <GroupedBars pairs={ORDER_BAR_PAIRS} />
-          <div className="stat-axis">
-            <span>Fulfilled vs. Unfulfilled</span>
-            <span>Last 30 days</span>
-          </div>
+          <span className="cd-value">2,300</span>
+          <p className="cd-sub">Segment Breakdown: Last 30 Days</p>
+          <SegmentBars data={SEGMENTS} />
         </article>
 
-        <article className="card status-card">
-          <span className="stat-label">Status Breakdown</span>
-          <div className="donut-wrap">
-            <Donut data={STATUS_DATA} />
-            <ul className="legend">
-              {STATUS_DATA.map((s) => (
+        <article className="cd-card cd-csat-card">
+          <span className="cd-label">Customer Satisfaction (CSAT)</span>
+          <p className="cd-sub">CSAT Scores (last 30 days)</p>
+          <div className="cd-csat-body">
+            <Donut data={CSAT} center={{ value: "88%", label: "CSAT" }} />
+            <ul className="cd-legend">
+              {CSAT.map((s) => (
                 <li key={s.label}>
-                  <span className="swatch" style={{ background: s.color }} />
+                  <span className="cd-swatch" style={{ background: s.color }} />
                   {s.label}
                 </li>
               ))}
@@ -223,36 +205,27 @@ export default function Orders() {
       </section>
 
       {/* Quick actions */}
-      <section className="quick-actions">
+      <section className="cd-quick-actions">
         <h2>Quick Action Buttons</h2>
-        <div className="action-row">
-          <button className="btn btn-primary">+ Create New Order</button>
-          <button className="btn">☰ Manage Shipping</button>
-          <button className="btn">↻ Process Refunds</button>
-          <button className="btn">⇩ Orders Export</button>
+        <div className="cd-action-row">
+          <button className="cd-btn cd-btn-primary">+ Add New Customer</button>
+          <button className="cd-btn">&#9776; Manage Groups</button>
+          <button className="cd-btn">&#8659; Export Customers</button>
+          <button className="cd-btn">&#8646; Engagement Tools</button>
         </div>
       </section>
 
       {/* Main grid */}
-      <div className="main-grid">
-        {/* Orders panel */}
-        <section className="card orders-panel">
-          <nav className="tabs">
-            {TABS.map((tab) => (
-              <button
-                key={tab}
-                className={`tab${activeTab === tab ? " active" : ""}`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </button>
-            ))}
+      <div className="cd-main-grid">
+        <section className="cd-card cd-directory-panel">
+          <nav className="cd-main-tabs">
+            <button className="cd-main-tab active">Customer Directory</button>
           </nav>
 
-          <div className="orders-toolbar">
-            <h3>Orders</h3>
-            <div className="search-box">
-              <span className="search-icon">🔍</span>
+          <div className="cd-toolbar">
+            <h3>Customer Directory</h3>
+            <div className="cd-search-box">
+              <span className="cd-search-icon">&#128269;</span>
               <input
                 type="text"
                 placeholder="Search"
@@ -262,131 +235,100 @@ export default function Orders() {
             </div>
           </div>
 
-          <div className="table-scroll">
-            <table className="orders-table">
+          <div className="cd-table-scroll">
+            <table className="cd-table">
               <thead>
                 <tr>
-                  <th className="col-check">
-                    <input type="checkbox" />
-                  </th>
-                  <th>Order ID</th>
-                  <th>Date</th>
+                  <th className="cd-col-check"><input type="checkbox" /></th>
+                  <th>Customer Image</th>
                   <th>Customer Name</th>
-                  <th>Product Details</th>
-                  <th>Shipping Address</th>
-                  <th>Total Amount</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                  <th>Email Address</th>
+                  <th>Phone</th>
+                  <th>Total Lifetime Orders</th>
+                  <th>Total Lifetime Value</th>
+                  <th>Join Date</th>
+                  <th>Engagement Score (0-100)</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredOrders.map((o, i) => (
-                  <tr key={`${o.id}-${i}`}>
-                    <td className="col-check">
-                      <input type="checkbox" />
-                    </td>
-                    <td>{o.id}</td>
-                    <td>{o.date}</td>
-                    <td>{o.name}</td>
+                {filtered.map((c, i) => (
+                  <tr key={i}>
+                    <td className="cd-col-check"><input type="checkbox" /></td>
+                    <td><span className="cd-avatar" /></td>
+                    <td className="cd-name">{c.name}</td>
+                    <td>{c.email}</td>
+                    <td>{c.phone}</td>
+                    <td>{c.orders}</td>
+                    <td>{c.value}</td>
+                    <td>{c.join}</td>
                     <td>
-                      <div className="product-cell">
-                        <span className="product-thumb">📦</span>
-                        <span>{o.product}</span>
-                      </div>
-                    </td>
-                    <td>{o.addr}</td>
-                    <td>{o.amount}</td>
-                    <td>
-                      <span
-                        className={`badge ${
-                          o.status === "Shipped" ? "badge-shipped" : "badge-processing"
-                        }`}
-                      >
-                        {o.status}
+                      <span className="cd-score-track">
+                        <span
+                          className="cd-score-fill"
+                          style={{ width: `${c.score}%`, background: scoreColor(c.score) }}
+                        />
                       </span>
-                    </td>
-                    <td>
-                      <a className="link-action" href="#">
-                        {o.action}
-                      </a>
                     </td>
                   </tr>
                 ))}
-                {filteredOrders.length === 0 && (
+                {filtered.length === 0 && (
                   <tr>
-                    <td colSpan={9} style={{ textAlign: "center", padding: "24px", color: "var(--ink-faint)" }}>
-                      No orders match your search.
-                    </td>
+                    <td colSpan={9} className="cd-empty">No customers match your search.</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
 
-          <div className="pagination">
-            <button aria-label="First page">«</button>
-            <button aria-label="Previous page">‹</button>
-            <span>1 of 1</span>
-            <button aria-label="Next page">›</button>
-            <button aria-label="Last page">»</button>
+          <div className="cd-footer-row">
+            <div className="cd-search-box cd-search-bottom">
+              <span className="cd-search-icon">&#128269;</span>
+              <input type="text" placeholder="Search" />
+            </div>
+            <div className="cd-pagination">
+              <button aria-label="First page">&#171;</button>
+              <button aria-label="Previous page">&#8249;</button>
+              <span>1 of 1</span>
+              <button aria-label="Next page">&#8250;</button>
+              <button aria-label="Last page">&#187;</button>
+            </div>
           </div>
         </section>
 
         {/* Sidebar */}
-        <aside className="sidebar">
-          <section className="card">
-            <h3>Fulfillment Performance &amp; Insights</h3>
+        <aside className="cd-sidebar">
+          <h2 className="cd-sidebar-title">Insights &amp; Alerts</h2>
 
-            <div className="sub-card">
-              <span className="mini-label">
-                Average Fulfillment Time <small>(in days)</small>
-              </span>
-              <MiniBars values={FULFILL_BARS} />
-              <div className="stat-axis">
-                <span>Last 30 days</span>
-                <span>Last 30 days</span>
-              </div>
-            </div>
-
-            <div className="sub-card">
-              <span className="mini-label">Top Product Performance by Orders</span>
-              <ul className="tag-list">
-                <li className="tag">Electronics</li>
-                <li className="tag muted">Low Stock</li>
-                <li className="tag">Fashion</li>
-                <li className="tag muted">High Turnover</li>
-              </ul>
-            </div>
-
-            <div className="sub-card">
-              <span className="mini-label">Orders Alerts</span>
-              <ul className="alert-list">
-                <li className="alert">High-Priority Delayed Shipments</li>
-                <li className="alert">Recent High-Value Orders</li>
-                <li className="alert">Recent High-Value Orders</li>
-              </ul>
-            </div>
+          <section className="cd-card">
+            <h3>Top Customer Performance (re-named)</h3>
+            <span className="cd-mini-label">Top 3 Highest Spending</span>
+            <ol className="cd-num-list">
+              {TOP_SPENDING.map((p, i) => (
+                <li key={i}>{p}</li>
+              ))}
+            </ol>
           </section>
 
-          <section className="card">
-            <h3>Recent Shipping Activity</h3>
-            <ul className="ship-list">
-              {SHIPMENTS.map((s, i) => (
-                <li key={i}>
-                  <b>{s.id}</b>: In Transit via {s.carrier}
-                </li>
+          <section className="cd-card">
+            <h3>Churn Alerts</h3>
+            <ul className="cd-alert-list">
+              {CHURN_ALERTS.map((a, i) => (
+                <li className={`cd-alert cd-alert-${a.tone}`} key={i}>{a.text}</li>
               ))}
             </ul>
           </section>
         </aside>
       </div>
 
-      <footer className="dash-footer">
-        <span className="brand">■ ShopEase</span>
-        <span className="footer-links">
-          <a href="#">Help Center</a>
-          <a href="#">Contact</a>
-        </span>
+      <footer className="cd-footer">
+        <span className="cd-brand">&#9632; ShopEase</span>
+        <div className="cd-footer-right">
+          <span className="cd-footer-links">
+            <a href="#">Help Center</a>
+            <a href="#">Contact</a>
+          </span>
+          <span className="cd-copyright">Copyright © 2022. ShopEase</span>
+        </div>
       </footer>
     </div>
   );
