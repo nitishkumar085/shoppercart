@@ -143,29 +143,10 @@ export default function Payments() {
 
   return (
     <div className="pay-dashboard">
-      {/* Top bar */}
-      <header className="pay-topbar">
-        <h1>Payments</h1>
-        <div className="pay-topbar-actions">
-          <button className="pay-icon-btn" aria-label="Search">&#128269;</button>
-          <button className="pay-icon-btn" aria-label="Notifications">
-            &#128276;
-            <span className="pay-badge">5</span>
-          </button>
-          <button className="pay-icon-btn" aria-label="Messages">
-            &#9993;
-            <span className="pay-badge pay-badge-alt">3</span>
-          </button>
-          <button className="pay-account-btn">
-            <span className="pay-avatar" /> My Store <span className="pay-caret">&#9662;</span>
-          </button>
-        </div>
-      </header>
-
+    
       {/* Sub header */}
       <div className="pay-subheader">
         <h2>Payments Overview</h2>
-        <span className="pay-welcome">Welcome back, Seller!</span>
       </div>
 
       {/* Top row */}

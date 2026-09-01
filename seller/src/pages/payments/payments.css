@@ -558,7 +558,7 @@
 
 @media (max-width: 560px){
   .pay-dashboard{ padding:14px 14px 28px; }
-  .pay-card{ border-radius:12px; }
+  .pay-card{ border-radius:12px;width: 80vw;overflow: hidden; }
 
   .pay-topbar h1{ font-size:19px; }
   .pay-icon-btn{ width:34px; height:34px; }
@@ -579,7 +579,7 @@
 }
 
 @media (max-width: 400px){
-  .pay-dashboard{ padding:12px 10px 24px; }
+  .pay-dashboard{ padding:12px 10px 24px; width: 90vw; }
   .pay-topbar h1{ font-size:17px; }
   .pay-topbar-actions{ gap:4px; }
 
@@ -590,14 +590,14 @@
   .pay-spark{ height:46px; }
 
   .pay-payout-labels span{ font-size:9px; }
-  .pay-payout-stats{ gap:14px; }
-  .pay-stat-value{ font-size:14px; }
+  .pay-payout-stats{ gap:14px;width: 50vw; }
+  .pay-stat-value{ font-size:14px;width: 50vw; }
 
-  .pay-main-tab{ font-size:12.5px; }
+  .pay-main-tab{ font-size:12.5px;width: 50vw;}
 
-  .pay-table{ min-width:560px; }
+  .pay-table{ min-width:560px;width: 50vw; }
 
-  .pay-qa-btn{ font-size:12.5px; padding:10px 14px; }
+  .pay-qa-btn{ font-size:12.5px; padding:10px 14px; width: 50vw;}
 }
 
 @media (prefers-reduced-motion: reduce){
