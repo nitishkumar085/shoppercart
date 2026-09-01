@@ -599,6 +599,12 @@
   .inv-table{ min-width:760px; }
 
   .inv-cat-list li{ grid-template-columns:80px 1fr; }
+  .inv-donut-wrap{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  justify-content: center;
+}
 }
 
 @media (prefers-reduced-motion: reduce){

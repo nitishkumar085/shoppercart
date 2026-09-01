@@ -74,7 +74,6 @@ export default function Settings() {
       {/* Header */}
       <header className="set-header">
         <h1>Settings Management</h1>
-        <span className="set-welcome">Welcome back, Seller!</span>
       </header>
 
       {/* Top row */}
