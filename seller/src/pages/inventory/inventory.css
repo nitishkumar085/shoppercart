@@ -584,7 +584,7 @@
 }
 
 @media (max-width: 400px){
-  .inv-dashboard{ padding:14px 10px 24px;width: 100vw; }
+  .inv-dashboard{ padding:14px 10px 24px;width: 90vw; }
   .inv-title{ font-size:16px; }
 
   .inv-value{ font-size:19px; }
