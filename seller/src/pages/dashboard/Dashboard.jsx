@@ -36,7 +36,7 @@ navigate("/login")
   return (
     <div className={styles.dashboardContainer}>
       {/* SIDEBAR */}
-      {isToggle? <div style={{width:"240px",height:"95vh",position:"fixed",background:"none",padding:"20px"}}> <div style={{width:"70px",height:"70px",background:"gray", position:"absolute",bottom:"0px", borderRadius:"50%"}} onClick={()=>{setIsToggle(false)}}></div></div>:<aside className={styles.sidebar}>
+      {isToggle? <div style={{width:"70px",height:"95vh",position:"fixed",background:"none",padding:"20px"}}> <div style={{width:"70px",height:"70px",background:"gray", position:"absolute",bottom:"0px", borderRadius:"50%"}} onClick={()=>{setIsToggle(false)}}></div></div>:<aside className={styles.sidebar}>
         {/* <div className={styles.logoSection}>
           <div className={styles.logoIcon}>
             <FiShoppingCart size={20} />

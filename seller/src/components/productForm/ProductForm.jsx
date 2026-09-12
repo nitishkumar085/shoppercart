@@ -12,7 +12,8 @@ const INITIAL_TAGS = [
 ];
  import "./productForm.css"
 
-export default function ProductDetails() {
+export default function ProductDetails({setIsProductForm}) {
+  console.log(setIsProductForm)
   const [title, setTitle] = useState("pen");
   const [brand, setBrand] = useState("demo brand");
   const [description, setDescription] = useState("bring the heat");
@@ -102,13 +103,14 @@ export default function ProductDetails() {
   const [saved, setSaved] = useState(false);
 
   const handleSave = () => {
-    setSaving(true);
-    setSaved(false);
-    setTimeout(() => {
-      setSaving(false);
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
-    }, 700);
+    setIsProductForm(false)
+    // setSaving(true);
+    // setSaved(false);
+    // setTimeout(() => {
+    //   setSaving(false);
+    //   setSaved(true);
+    //   setTimeout(() => setSaved(false), 2000);
+    // }, 700);
   };
 
   return (
@@ -335,7 +337,7 @@ export default function ProductDetails() {
 
         {/* Footer */}
         <div className="pd-footer">
-          <button className="pd-btn pd-btn-save" onClick={handleSave} disabled={saving}>
+          <button className="pd-btn pd-btn-save" onClick={handleSave} >
             <ImageIcon size={17} />
             {saving ? "Saving..." : "Save Changes"}
           </button>

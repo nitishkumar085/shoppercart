@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./inventory.css";
+import ProductDetails from "../../components/productForm/ProductForm";
 
 /* ---------------- Data ---------------- */
 
@@ -134,7 +135,7 @@ function Donut({ data, size = 108, r = 42, stroke = 17 }) {
 /* ---------------- Main component ---------------- */
 
 export default function Inventory() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isProductForm,setIsProductForm] = useState(false);
   const [alertRange, setAlertRange] = useState("Last 7 Days");
   const [search, setSearch] = useState("");
 
@@ -148,8 +149,18 @@ export default function Inventory() {
     );
   });
 
+  const toggleProductForm = (e)=>{
+
+    console.log(e)
+    // setIsProductForm(true)
+  }
+  console.log(isProductForm)
+
   return (
-    <div className="inv-dashboard">
+
+    <div>
+    {isProductForm? <ProductDetails setIsProductForm={setIsProductForm}/>:<div className="inv-dashboard">
+
       {/* Header */}
       <header className="inv-header">
         <h1 className="inv-title">Inventory Overview &amp; Actions</h1>
@@ -179,7 +190,10 @@ export default function Inventory() {
           <section className="inv-quick-actions">
             <h3>Quick Action Buttons</h3>
             <div className="inv-action-row">
-              <button className="inv-btn inv-btn-primary">+ Add New Product</button>
+              <button className="inv-btn inv-btn-primary"  type="button"  onClick={() => {
+    console.log("CLICKED");
+    setIsProductForm(true);
+  }}>+ Add New Product</button>
               <button className="inv-btn">&#9776; Manage Categories</button>
               <button className="inv-btn">&#8635; Replenish Stock</button>
               <button className="inv-btn">&#128203; Stock Take</button>
@@ -415,6 +429,8 @@ export default function Inventory() {
           <span className="inv-copyright">Copyright © 2022. ShopEase</span>
         </div>
       </footer>
+    </div>
+    }
     </div>
   );
 }
